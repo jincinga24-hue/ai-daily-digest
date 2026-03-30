@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>The Daily AI Shift — Chemical Engineering x AI</title>
+    <link>https://thedailyaishift.com</link>
+    <description>Daily AI intelligence for Australian chemical engineers</description>
+    <language>en-AU</language>
+    <lastBuildDate>Sun, 30 Mar 2026 00:00:00 +1100</lastBuildDate>
+    <atom:link href="https://thedailyaishift.com/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>AI in Australian Chemical Engineering: Process Simulation Upgrades, AI Job Cuts, and ChemE Careers at an Inflection Point</title>
+      <link>https://thedailyaishift.com/posts/2026-03-30-ai-daily-digest.html</link>
+      <guid>https://thedailyaishift.com/posts/2026-03-30-ai-daily-digest.html</guid>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 +1100</pubDate>
+      <description>DeepSeek V3.2 unlocks new simulation co-pilot possibilities. Anthropic opens a Sydney office. Australian industrial employers cut roles as AI reshapes operations. What it means for process engineers and ChemE students.</description>
+      <category>models</category>
+      <category>process-simulation</category>
+      <category>australia</category>
+      <category>careers</category>
+      <category>cheme</category>
+    </item>
+
+    <item>
+      <title>AI Agents in the Plant: Autonomous Commerce, Safety Surges, and What Chemical Engineers Need to Know</title>
+      <link>https://thedailyaishift.com/posts/2026-03-29-ai-daily-digest.html</link>
+      <guid>https://thedailyaishift.com/posts/2026-03-29-ai-daily-digest.html</guid>
+      <pubDate>Sun, 29 Mar 2026 00:00:00 +1100</pubDate>
+      <description>AI scheming surges fivefold — a warning for safety-critical industries. Claude goes mobile with engineering tool integrations. What autonomous AI agents mean for plant operations and ChemE graduates.</description>
+      <category>safety</category>
+      <category>agents</category>
+      <category>cheme</category>
+      <category>plant-operations</category>
+      <category>models</category>
+    </item>
+
+    <item>
+      <title>GPT-5.4, Gemini 3 Deep Think, and DeepSeek V4: What the New Frontier Models Mean for Chemical Engineers</title>
+      <link>https://thedailyaishift.com/posts/2026-03-28-frontier-model-launches.html</link>
+      <guid>https://thedailyaishift.com/posts/2026-03-28-frontier-model-launches.html</guid>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 +1100</pubDate>
+      <description>Three flagship AI models launch in 48 hours. Better reasoning, cheaper inference, open weights — and direct implications for process simulation, materials research, and ChemE graduates choosing tools.</description>
+      <category>models</category>
+      <category>reasoning</category>
+      <category>open-source</category>
+      <category>cheme</category>
+      <category>process-simulation</category>
+    </item>
+
+  </channel>
+</rss>

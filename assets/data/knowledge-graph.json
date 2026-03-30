@@ -1,0 +1,302 @@
+{
+  "version": 2,
+  "lastUpdated": "2026-03-30",
+  "config": {
+    "decayHalfLifeDays": 30,
+    "minFitness": 0.1,
+    "fitnessPerMention": 0.15,
+    "fitnessPerEvidence": 0.2
+  },
+  "entities": {
+    "AspenTech": {
+      "type": "company",
+      "sector": "Process Design & Simulation",
+      "firstSeen": "2026-03-28",
+      "lastSeen": "2026-03-30",
+      "mentions": ["2026-03-30-ai-daily-digest", "2026-03-28-frontier-model-launches"],
+      "evidenceLinks": ["aspentech-llm-flowsheet"],
+      "fitness": 0.9,
+      "signals": ["product_launch", "process_simulation", "ai_integration", "llm_flowsheet"],
+      "decayWeight": 1.0
+    },
+    "BHP": {
+      "type": "company",
+      "sector": "Mining & Minerals Processing",
+      "firstSeen": "2026-03-30",
+      "lastSeen": "2026-03-30",
+      "mentions": ["2026-03-30-ai-daily-digest"],
+      "evidenceLinks": ["bhp-predictive-maintenance"],
+      "fitness": 0.7,
+      "signals": ["company_deployment", "mining", "autonomous_operations", "pilbara", "predictive_maintenance"],
+      "decayWeight": 1.0
+    },
+    "DeepSeek V3.2": {
+      "type": "model",
+      "sector": "Process Design & Simulation",
+      "firstSeen": "2026-03-28",
+      "lastSeen": "2026-03-30",
+      "mentions": ["2026-03-30-ai-daily-digest", "2026-03-28-frontier-model-launches"],
+      "evidenceLinks": [],
+      "fitness": 0.8,
+      "signals": ["model_release", "frontier_model", "process_simulation", "cost_effective_reasoning"],
+      "decayWeight": 1.0
+    },
+    "Anthropic": {
+      "type": "company",
+      "sector": null,
+      "firstSeen": "2026-03-29",
+      "lastSeen": "2026-03-30",
+      "mentions": ["2026-03-30-ai-daily-digest", "2026-03-29-ai-daily-digest"],
+      "evidenceLinks": ["anthropic-claude-process-simulation", "anthropic-claude-pharma"],
+      "fitness": 0.9,
+      "signals": ["model_release", "ai_lab", "technical_documentation", "hazop_support"],
+      "decayWeight": 1.0
+    },
+    "CSL": {
+      "type": "company",
+      "sector": "Pharmaceutical Manufacturing",
+      "firstSeen": "2026-03-30",
+      "lastSeen": "2026-03-30",
+      "mentions": ["2026-03-30-ai-daily-digest"],
+      "evidenceLinks": ["csl-bioprocess-optimisation", "csl-qc-yield-prediction"],
+      "fitness": 0.9,
+      "signals": ["company_deployment", "bioprocess_optimisation", "ml_batch_yield", "gmp_validation"],
+      "decayWeight": 1.0
+    },
+    "Woodside": {
+      "type": "company",
+      "sector": "Oil & Gas Refining",
+      "firstSeen": "2026-03-30",
+      "lastSeen": "2026-03-30",
+      "mentions": ["2026-03-30-ai-daily-digest"],
+      "evidenceLinks": ["woodside-hazop-karratha", "woodside-energy-trading"],
+      "fitness": 0.9,
+      "signals": ["company_deployment", "hazop_ai", "digital_twin", "lng", "karratha"],
+      "decayWeight": 1.0
+    },
+    "HAZOP": {
+      "type": "concept",
+      "sector": "Safety & Risk Engineering",
+      "firstSeen": "2026-03-30",
+      "lastSeen": "2026-03-30",
+      "mentions": ["2026-03-30-ai-daily-digest"],
+      "evidenceLinks": ["woodside-hazop-karratha"],
+      "fitness": 0.7,
+      "signals": ["safety_engineering", "risk_analysis", "ai_document_review", "process_safety"],
+      "decayWeight": 1.0
+    },
+    "GPT-5.4": {
+      "type": "model",
+      "sector": null,
+      "firstSeen": "2026-03-28",
+      "lastSeen": "2026-03-28",
+      "mentions": ["2026-03-28-frontier-model-launches"],
+      "evidenceLinks": [],
+      "fitness": 0.5,
+      "signals": ["model_release", "frontier_model", "hazop_prep"],
+      "decayWeight": 1.0
+    },
+    "Gemini 3": {
+      "type": "model",
+      "sector": null,
+      "firstSeen": "2026-03-28",
+      "lastSeen": "2026-03-28",
+      "mentions": ["2026-03-28-frontier-model-launches"],
+      "evidenceLinks": ["gemini3-materials-science"],
+      "fitness": 0.65,
+      "signals": ["model_release", "frontier_model", "materials_science", "molecular_property_prediction"],
+      "decayWeight": 1.0
+    },
+    "Claude": {
+      "type": "model",
+      "sector": null,
+      "firstSeen": "2026-03-28",
+      "lastSeen": "2026-03-29",
+      "mentions": ["2026-03-29-ai-daily-digest", "2026-03-28-frontier-model-launches"],
+      "evidenceLinks": ["anthropic-claude-process-simulation", "anthropic-claude-pharma"],
+      "fitness": 0.8,
+      "signals": ["model_release", "technical_documentation", "simulation_interpretation", "literature_review"],
+      "decayWeight": 1.0
+    },
+    "OpenAI": {
+      "type": "company",
+      "sector": null,
+      "firstSeen": "2026-03-28",
+      "lastSeen": "2026-03-29",
+      "mentions": ["2026-03-29-ai-daily-digest", "2026-03-28-frontier-model-launches"],
+      "evidenceLinks": [],
+      "fitness": 0.8,
+      "signals": ["ai_lab", "code_generation", "data_analysis", "multimodal"],
+      "decayWeight": 1.0
+    },
+    "Rio Tinto": {
+      "type": "company",
+      "sector": "Mining & Minerals Processing",
+      "firstSeen": "2026-03-30",
+      "lastSeen": "2026-03-30",
+      "mentions": ["2026-03-30-ai-daily-digest"],
+      "evidenceLinks": ["riotinto-autonomous-operations"],
+      "fitness": 0.7,
+      "signals": ["company_deployment", "mining", "autonomous_operations", "pilbara", "ore_sorting"],
+      "decayWeight": 1.0
+    },
+    "Atlassian": {
+      "type": "company",
+      "sector": null,
+      "firstSeen": "2026-03-30",
+      "lastSeen": "2026-03-30",
+      "mentions": ["2026-03-30-ai-daily-digest"],
+      "evidenceLinks": [],
+      "fitness": 0.5,
+      "signals": ["software_tools", "ai_integration", "productivity"],
+      "decayWeight": 1.0
+    },
+    "AVEVA": {
+      "type": "company",
+      "sector": "Process Design & Simulation",
+      "firstSeen": "2026-03-28",
+      "lastSeen": "2026-03-28",
+      "mentions": ["2026-03-28-frontier-model-launches"],
+      "evidenceLinks": [],
+      "fitness": 0.5,
+      "signals": ["process_simulation", "digital_twin", "plant_ai"],
+      "decayWeight": 1.0
+    },
+    "Orica": {
+      "type": "company",
+      "sector": "Quality Control & Analytics",
+      "firstSeen": "2026-03-30",
+      "lastSeen": "2026-03-30",
+      "mentions": ["2026-03-30-ai-daily-digest"],
+      "evidenceLinks": ["orica-nir-spectroscopy", "orica-compliance-reporting"],
+      "fitness": 0.9,
+      "signals": ["company_deployment", "nir_spectroscopy", "explosives_qc", "compliance_reporting"],
+      "decayWeight": 1.0
+    },
+    "Shopify": {
+      "type": "company",
+      "sector": null,
+      "firstSeen": "2026-03-29",
+      "lastSeen": "2026-03-29",
+      "mentions": ["2026-03-29-ai-daily-digest"],
+      "evidenceLinks": [],
+      "fitness": 0.5,
+      "signals": ["ai_adoption", "tech_company", "software_tools"],
+      "decayWeight": 1.0
+    }
+  },
+  "edges": [
+    {
+      "source": "AspenTech",
+      "target": "DeepSeek V3.2",
+      "type": "co_mention",
+      "strength": 0.67,
+      "posts": ["2026-03-30-ai-daily-digest", "2026-03-28-frontier-model-launches"],
+      "reason": "Both mentioned in context of AI-assisted process simulation"
+    },
+    {
+      "source": "AspenTech",
+      "target": "AVEVA",
+      "type": "same_sector",
+      "strength": 0.8,
+      "posts": ["2026-03-28-frontier-model-launches"],
+      "reason": "Both are process simulation vendors integrating AI into engineering tools"
+    },
+    {
+      "source": "AspenTech",
+      "target": "Anthropic",
+      "type": "evidence_chain",
+      "strength": 0.6,
+      "posts": ["2026-03-30-ai-daily-digest", "2026-03-28-frontier-model-launches"],
+      "reason": "Claude/Anthropic models used for process simulation interpretation and documentation at AspenTech customers"
+    },
+    {
+      "source": "BHP",
+      "target": "Rio Tinto",
+      "type": "same_sector",
+      "strength": 0.8,
+      "posts": ["2026-03-30-ai-daily-digest"],
+      "reason": "Both deploying AI in Pilbara mining operations"
+    },
+    {
+      "source": "BHP",
+      "target": "Orica",
+      "type": "co_mention",
+      "strength": 0.5,
+      "posts": ["2026-03-30-ai-daily-digest"],
+      "reason": "Both Australian resources companies deploying AI in operations"
+    },
+    {
+      "source": "Woodside",
+      "target": "HAZOP",
+      "type": "evidence_chain",
+      "strength": 0.9,
+      "posts": ["2026-03-30-ai-daily-digest"],
+      "reason": "Woodside directly deploying AI-assisted HAZOP at Karratha LNG"
+    },
+    {
+      "source": "Woodside",
+      "target": "GPT-5.4",
+      "type": "co_mention",
+      "strength": 0.5,
+      "posts": ["2026-03-28-frontier-model-launches"],
+      "reason": "GPT-5.4 referenced in context of HAZOP preparation workflows"
+    },
+    {
+      "source": "CSL",
+      "target": "Orica",
+      "type": "same_sector",
+      "strength": 0.5,
+      "posts": ["2026-03-30-ai-daily-digest"],
+      "reason": "Both in quality control and analytics — CSL batch yield, Orica NIR spectroscopy"
+    },
+    {
+      "source": "Anthropic",
+      "target": "OpenAI",
+      "type": "same_sector",
+      "strength": 0.7,
+      "posts": ["2026-03-29-ai-daily-digest", "2026-03-28-frontier-model-launches"],
+      "reason": "Competing frontier AI labs both tracked for ChemE-relevant model releases"
+    },
+    {
+      "source": "Anthropic",
+      "target": "Claude",
+      "type": "evidence_chain",
+      "strength": 1.0,
+      "posts": ["2026-03-29-ai-daily-digest", "2026-03-28-frontier-model-launches"],
+      "reason": "Claude is Anthropic's model — same entity across company and product"
+    },
+    {
+      "source": "DeepSeek V3.2",
+      "target": "GPT-5.4",
+      "type": "same_sector",
+      "strength": 0.67,
+      "posts": ["2026-03-28-frontier-model-launches"],
+      "reason": "Competing frontier models evaluated for process simulation co-pilot workflows"
+    },
+    {
+      "source": "DeepSeek V3.2",
+      "target": "Gemini 3",
+      "type": "same_sector",
+      "strength": 0.5,
+      "posts": ["2026-03-28-frontier-model-launches"],
+      "reason": "Competing frontier models released in same timeframe"
+    },
+    {
+      "source": "GPT-5.4",
+      "target": "Claude",
+      "type": "same_sector",
+      "strength": 0.5,
+      "posts": ["2026-03-28-frontier-model-launches"],
+      "reason": "Competing frontier models from OpenAI and Anthropic compared in ChemE workflows"
+    },
+    {
+      "source": "OpenAI",
+      "target": "Shopify",
+      "type": "co_mention",
+      "strength": 0.33,
+      "posts": ["2026-03-29-ai-daily-digest"],
+      "reason": "Both referenced in discussion of enterprise AI adoption patterns"
+    }
+  ]
+}

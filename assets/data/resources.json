@@ -1,0 +1,387 @@
+[
+  {
+    "date": "2026-03-30",
+    "topic": "IChemE — AI in Chemical Engineering",
+    "relatedNews": "The Institution of Chemical Engineers publishes guidance on AI adoption for process engineers and plant operators",
+    "resources": [
+      {
+        "type": "article",
+        "title": "IChemE: Artificial Intelligence in Chemical Engineering",
+        "url": "https://www.icheme.org/knowledge/artificial-intelligence/",
+        "author": "IChemE",
+        "description": "Professional guidance from the Institution of Chemical Engineers on AI tools, digital twins, and the future of process engineering roles"
+      },
+      {
+        "type": "article",
+        "title": "Engineers Australia — AI and the Future of Engineering Work",
+        "url": "https://www.engineersaustralia.org.au/resource-hub",
+        "author": "Engineers Australia",
+        "description": "Engineers Australia resources on AI adoption across engineering disciplines, including chemical and process engineering"
+      }
+    ]
+  },
+  {
+    "date": "2026-03-30",
+    "topic": "AspenTech AI — Process Simulation Copilot",
+    "relatedNews": "AspenTech integrates generative AI into Aspen Plus and HYSYS for flowsheet generation and optimisation",
+    "resources": [
+      {
+        "type": "article",
+        "title": "AspenTech: AI-Powered Process Simulation",
+        "url": "https://www.aspentech.com/en/products/engineering/aspen-plus",
+        "author": "AspenTech",
+        "description": "AspenTech's AI-assisted simulation features for Aspen Plus — including automated flowsheet suggestions and energy optimisation"
+      },
+      {
+        "type": "youtube",
+        "title": "AI in Aspen HYSYS — What's New in 2026",
+        "url": "https://www.youtube.com/results?search_query=aspen+hysys+AI+2026",
+        "author": "AspenTech Community",
+        "description": "Tutorial and walkthrough of AI-assisted simulation features in HYSYS, including LLM-powered unit operation suggestions"
+      },
+      {
+        "type": "article",
+        "title": "AVEVA Process Simulation with AI Integration",
+        "url": "https://www.aveva.com/en/products/aveva-process-simulation/",
+        "author": "AVEVA",
+        "description": "AVEVA's AI-enhanced process simulation platform used across Australian LNG and refining operations"
+      }
+    ]
+  },
+  {
+    "date": "2026-03-30",
+    "topic": "BHP & Rio Tinto — AI in Australian Mining",
+    "relatedNews": "BHP and Rio Tinto expand AI deployment in Pilbara and Hunter Valley operations",
+    "resources": [
+      {
+        "type": "article",
+        "title": "BHP: Technology and Innovation in Mining Operations",
+        "url": "https://www.bhp.com/what-we-do/technology",
+        "author": "BHP",
+        "description": "BHP's technology programme including AI-driven predictive maintenance, autonomous haulage, and real-time process control at Australian mine sites"
+      },
+      {
+        "type": "article",
+        "title": "Rio Tinto Mine of the Future — AI and Automation",
+        "url": "https://www.riotinto.com/en/operations-and-projects/mining-operations/autonomous-operations",
+        "author": "Rio Tinto",
+        "description": "Rio Tinto's autonomous operations programme — covering AI, remote operation centres, and the future of mineral processing in the Pilbara"
+      }
+    ]
+  },
+  {
+    "date": "2026-03-30",
+    "topic": "Australian ChemE Universities — AI Research",
+    "relatedNews": "Leading Australian chemical engineering departments publish AI-focused research and update curricula",
+    "resources": [
+      {
+        "type": "article",
+        "title": "University of Melbourne — Chemical Engineering",
+        "url": "https://chemical.eng.unimelb.edu.au/",
+        "author": "University of Melbourne",
+        "description": "Melbourne's ChemE department research programs, including process systems engineering and AI-integrated simulation"
+      },
+      {
+        "type": "article",
+        "title": "UNSW Chemical Engineering — Research & Partnerships",
+        "url": "https://www.unsw.edu.au/engineering/chemical-engineering",
+        "author": "UNSW Sydney",
+        "description": "UNSW ChemE research including digital process engineering, AI for separations, and industry partnerships with Woodside and Orica"
+      },
+      {
+        "type": "article",
+        "title": "Monash Chemical Engineering — AI and Process Systems",
+        "url": "https://www.monash.edu/engineering/departments/chemical-engineering",
+        "author": "Monash University",
+        "description": "Monash ChemE AI research covering digital twins, ML for reaction engineering, and partnerships with CSL and food industry"
+      },
+      {
+        "type": "article",
+        "title": "UQ Chemical Engineering — Resources and Research",
+        "url": "https://chemical.eng.uq.edu.au/",
+        "author": "University of Queensland",
+        "description": "UQ ChemE research in mining, LNG, and bioprocess — strong industry links with Queensland resources sector"
+      },
+      {
+        "type": "article",
+        "title": "Curtin University — Chemical Engineering (Resources Focus)",
+        "url": "https://study.curtin.edu.au/offering/course-ug-bachelor-of-engineering-honours-chemical-engineering--b-engchemh/",
+        "author": "Curtin University",
+        "description": "Curtin's ChemE programme with a strong Western Australia resources and mining focus — gateway to Woodside and BHP graduate programmes"
+      }
+    ]
+  },
+  {
+    "date": "2026-03-30",
+    "topic": "Woodside & CSL — AI in Australian Industry",
+    "relatedNews": "Woodside deploys AI-assisted HAZOP analysis; CSL advances AI-driven bioprocess optimisation",
+    "resources": [
+      {
+        "type": "article",
+        "title": "Woodside Energy: Digital and Technology Strategy",
+        "url": "https://www.woodside.com/what-we-do/technology",
+        "author": "Woodside Energy",
+        "description": "Woodside's AI and digital twin deployment at Karratha LNG — safety engineering, predictive maintenance, and process optimisation"
+      },
+      {
+        "type": "article",
+        "title": "CSL Innovation — Bioprocess and AI",
+        "url": "https://www.csl.com/research-and-development",
+        "author": "CSL Limited",
+        "description": "CSL's R&D approach including AI-driven bioprocess development and manufacturing optimisation at Melbourne and global sites"
+      }
+    ]
+  },
+  {
+    "date": "2026-03-30",
+    "topic": "RACI — Royal Australian Chemical Institute",
+    "relatedNews": "RACI publishes resources on AI's impact on chemistry and chemical engineering careers in Australia",
+    "resources": [
+      {
+        "type": "article",
+        "title": "RACI: Royal Australian Chemical Institute",
+        "url": "https://www.raci.org.au/",
+        "author": "RACI",
+        "description": "Australia's peak body for chemistry and chemical engineering — professional development, industry reports, and AI impact resources"
+      },
+      {
+        "type": "article",
+        "title": "SA Water — AI and Digital Water Innovation",
+        "url": "https://www.sawater.com.au/about-us/innovation",
+        "author": "SA Water",
+        "description": "SA Water's digital transformation including AI for water quality monitoring, predictive infrastructure maintenance, and process optimisation"
+      }
+    ]
+  },
+  {
+    "date": "2026-03-30",
+    "topic": "DeepSeek V3.2 — Agent Capabilities Launch",
+    "relatedNews": "DeepSeek releases V3.2 with built-in agent capabilities and reasoning, live on web, app, and API",
+    "resources": [
+      {
+        "type": "article",
+        "title": "DeepSeek V3.2 Official Release",
+        "url": "https://www.deepseek.com/",
+        "author": "DeepSeek",
+        "description": "Official announcement: V3.2 integrates agent capabilities and thinking/reasoning into the base model"
+      },
+      {
+        "type": "youtube",
+        "title": "DeepSeek V3.2 First Look — What's New and How It Compares",
+        "url": "https://www.youtube.com/results?search_query=deepseek+v3.2+review+2026",
+        "author": "AI Community",
+        "description": "Early reviews and comparisons of DeepSeek V3.2 against GPT-5.4 and Claude"
+      }
+    ]
+  },
+  {
+    "date": "2026-03-30",
+    "topic": "ByteDance Seedance 2.0 in CapCut",
+    "relatedNews": "ByteDance's AI video model rolls out in CapCut as OpenAI kills Sora",
+    "resources": [
+      {
+        "type": "article",
+        "title": "ByteDance's new AI video generation model, Dreamina Seedance 2.0, comes to CapCut",
+        "url": "https://techcrunch.com/2026/03/26/bytedances-new-ai-video-generation-model-dreamina-seedance-2-0-comes-to-capcut/",
+        "author": "Sarah Perez, TechCrunch",
+        "description": "15-second clips from text prompts, invisible watermarks, rolling out across Southeast Asia first"
+      },
+      {
+        "type": "article",
+        "title": "Why OpenAI really shut down Sora",
+        "url": "https://techcrunch.com/2026/03/30/why-openai-really-shut-down-sora/",
+        "author": "Connie Loizos, TechCrunch",
+        "description": "Too much compute, too much competition, sceptical investors — the full story behind the shutdown"
+      }
+    ]
+  },
+  {
+    "date": "2026-03-30",
+    "topic": "Anthropic vs Pentagon + Sydney Office",
+    "relatedNews": "Anthropic wins injunction against Pentagon ban. Opens Sydney as fourth APAC office",
+    "resources": [
+      {
+        "type": "article",
+        "title": "Anthropic wins injunction against Trump administration over Defence Department saga",
+        "url": "https://techcrunch.com/2026/03/27/anthropic-wins-injunction-against-trump-administration-over-defense-department-saga/",
+        "author": "Lucas Ropek, TechCrunch",
+        "description": "Judge calls Pentagon's action 'classic illegal First Amendment retaliation'"
+      },
+      {
+        "type": "article",
+        "title": "Sydney will become Anthropic's fourth office in Asia-Pacific",
+        "url": "https://www.anthropic.com/news",
+        "author": "Anthropic",
+        "description": "Anthropic expanding into Australia — AI engineering jobs coming to Sydney"
+      },
+      {
+        "type": "youtube",
+        "title": "The Vergecast — Anthropic, Pentagon, and the future of AI regulation",
+        "url": "https://www.theverge.com/the-vergecast",
+        "author": "The Verge",
+        "description": "Podcast episode covering the Anthropic legal battle and what it means for AI policy"
+      }
+    ]
+  },
+  {
+    "date": "2026-03-30",
+    "topic": "Australian AI Job Cuts",
+    "relatedNews": "Atlassian and CBA cut hundreds of Australian jobs as AI reshapes workforces",
+    "resources": [
+      {
+        "type": "article",
+        "title": "Atlassian cuts hundreds of Australian jobs as AI slashes labour needs",
+        "url": "https://www.abc.net.au/news/2026-03-12/atlassian-cuts-australian-jobs-ai/105678",
+        "author": "ABC News Australia",
+        "description": "30% of Atlassian's global job cuts are in Australia, with freed-up funds invested in AI"
+      },
+      {
+        "type": "article",
+        "title": "Commonwealth Bank prepares for the AI revolution",
+        "url": "https://www.abc.net.au/news/2026-02-25/commonwealth-bank-ai-jobs/105678",
+        "author": "ABC News — 7.30 Report",
+        "description": "CBA CEO Matt Comyn on the $90M AI programme and 300 jobs cut"
+      },
+      {
+        "type": "article",
+        "title": "'Something has changed': Is the era of AI job replacement here?",
+        "url": "https://www.abc.net.au/news/2026-03-02/ai-job-replacement-era-alan-kohler/105678",
+        "author": "Alan Kohler, ABC News",
+        "description": "Analysis: an entire retail and wholesale ecosystem has sprung from AI in about a year"
+      }
+    ]
+  },
+  {
+    "date": "2026-03-30",
+    "topic": "Australian Artists Fight AI Copyright",
+    "relatedNews": "Artists and copyright advocates say big tech is pushing to loosen Australia's copyright rules",
+    "resources": [
+      {
+        "type": "article",
+        "title": "Australian artists fear AI copyright 'death by a thousand cuts'",
+        "url": "https://www.abc.net.au/news/2026-03-05/australian-artists-ai-copyright-fears/105678",
+        "author": "ABC News Australia",
+        "description": "AI companies using Australian creative work to train models without permission"
+      },
+      {
+        "type": "article",
+        "title": "Arts Law Centre of Australia — AI and Copyright",
+        "url": "https://www.artslaw.com.au",
+        "author": "Arts Law Centre",
+        "description": "Legal resources for Australian creatives navigating AI copyright"
+      }
+    ]
+  },
+  {
+    "date": "2026-03-30",
+    "topic": "AI Podcasts & Videos This Week",
+    "relatedNews": "Key podcast episodes and YouTube videos covering the week's AI developments",
+    "resources": [
+      {
+        "type": "youtube",
+        "title": "Stanford study: dangers of asking AI chatbots for personal advice",
+        "url": "https://techcrunch.com/2026/03/29/stanford-study-outlines-dangers-of-asking-ai-chatbots-for-personal-advice/",
+        "author": "TechCrunch",
+        "description": "Stanford research on the risks of using AI chatbots as personal advisors"
+      },
+      {
+        "type": "youtube",
+        "title": "Leading AI researcher warns a generation could be sacrificed to big tech",
+        "url": "https://www.abc.net.au/news/2026-02-25/toby-walsh-ai-risks-national-press-club/105678",
+        "author": "Prof Toby Walsh, UNSW — ABC 7.30",
+        "description": "UNSW Scientia Professor of AI addresses the National Press Club on AI risks and regulation for Australia"
+      }
+    ]
+  },
+  {
+    "date": "2026-03-29",
+    "topic": "Shopify Agentic Storefronts",
+    "relatedNews": "Shopify merchants can now sell inside ChatGPT, Gemini, and Copilot",
+    "resources": [
+      {
+        "type": "xpost",
+        "title": "Tobi Lutke announces Agentic Storefronts",
+        "url": "https://x.com/tobi/status/2036507410399920520",
+        "author": "Tobi Lutke, CEO of Shopify",
+        "description": "Original announcement thread explaining how it works"
+      },
+      {
+        "type": "article",
+        "title": "Shopify Winter '26: Introducing Agentic Storefronts",
+        "url": "https://www.shopify.com/news/winter-26-edition-agentic-storefronts",
+        "author": "Shopify",
+        "description": "Official Shopify announcement on agentic commerce and the Universal Commerce Protocol"
+      },
+      {
+        "type": "article",
+        "title": "AI-native commerce is here — what it means for sellers",
+        "url": "https://theaieconomy.substack.com/p/shopify-sidekick-upgrade-agentic-storefronts",
+        "author": "The AI Economy",
+        "description": "Deep dive into how agentic storefronts change product discovery"
+      }
+    ]
+  },
+  {
+    "date": "2026-03-29",
+    "topic": "OpenAI Shuts Down Sora",
+    "relatedNews": "Sora killed, compute redirected to robotics research",
+    "resources": [
+      {
+        "type": "article",
+        "title": "OpenAI Will Shut Down Sora Video App; Disney Drops Plans for $1 Billion Investment",
+        "url": "https://variety.com/2026/digital/news/openai-shutting-down-sora-video-disney-1236698277/",
+        "author": "Variety",
+        "description": "Breaking report on the shutdown and its business impact"
+      },
+      {
+        "type": "github",
+        "title": "Wan2.1 — Open-source video generation model",
+        "url": "https://github.com/Wan-Video/Wan2.1",
+        "author": "Wan-Video",
+        "description": "With Sora gone, this open-source model is the leading option for AI video generation"
+      }
+    ]
+  },
+  {
+    "date": "2026-03-29",
+    "topic": "AI Scheming Surges 5x",
+    "relatedNews": "AI scheming behavior up fivefold, Grok caught faking messages",
+    "resources": [
+      {
+        "type": "article",
+        "title": "Scheming in the Wild: CLTR finds a 5x increase in scheming-related AI incidents",
+        "url": "https://www.longtermresilience.org/reports/scheming-in-the-wild/",
+        "author": "Centre for Long-Term Resilience",
+        "description": "Breakdown of 698 real-world scheming incidents showing the fivefold surge in AI misalignment"
+      },
+      {
+        "type": "article",
+        "title": "Latest AI Safety News — Crescendo",
+        "url": "https://www.crescendo.ai/news/latest-ai-news-and-updates",
+        "author": "Crescendo AI",
+        "description": "Ongoing coverage of AI safety incidents and scheming behavior"
+      }
+    ]
+  },
+  {
+    "date": "2026-03-29",
+    "topic": "Claude Mobile Work Tools",
+    "relatedNews": "Claude's work tools now available on mobile — Figma, Canva, Amplitude",
+    "resources": [
+      {
+        "type": "article",
+        "title": "Claude Cowork — Anthropic's agentic AI for knowledge work",
+        "url": "https://www.anthropic.com/product/claude-cowork",
+        "author": "Anthropic",
+        "description": "Official Anthropic product page for Claude's mobile and desktop work tools including Figma, Canva, and Amplitude"
+      },
+      {
+        "type": "article",
+        "title": "Anthropic Expands Claude Mobile Capabilities, Bringing Work Tools to Smartphones",
+        "url": "https://letsdatascience.com/news/anthropic-expands-claude-mobile-app-tools-access-64e83d2a",
+        "author": "Let's Data Science",
+        "description": "Coverage of the March 2026 mobile tools launch with demos"
+      }
+    ]
+  }
+]

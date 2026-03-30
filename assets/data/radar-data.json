@@ -1,0 +1,65 @@
+{
+  "lastUpdated": "2026-03-30",
+  "industries": [
+    "Process Design & Simulation",
+    "Mining & Minerals Processing",
+    "Oil & Gas Refining",
+    "Water & Wastewater Treatment",
+    "Pharmaceutical Manufacturing",
+    "Food & Beverage Processing",
+    "Environmental & Sustainability",
+    "Safety & Risk Engineering",
+    "Quality Control & Analytics",
+    "Materials Science",
+    "Energy & Renewables",
+    "Supply Chain & Logistics"
+  ],
+  "theoretical": [0.88, 0.80, 0.78, 0.72, 0.85, 0.68, 0.70, 0.75, 0.82, 0.76, 0.74, 0.65],
+  "observed":    [0.52, 0.55, 0.45, 0.38, 0.48, 0.30, 0.32, 0.35, 0.50, 0.40, 0.42, 0.28],
+  "changes": [
+    {
+      "industry": "Process Design & Simulation",
+      "direction": "up",
+      "reason": "AspenTech integrates LLM-assisted flowsheet generation — AI co-piloting Aspen Plus and HYSYS simulations in commercial deployments",
+      "date": "2026-03-30"
+    },
+    {
+      "industry": "Mining & Minerals Processing",
+      "direction": "up",
+      "reason": "BHP and Rio Tinto expand AI-driven predictive maintenance and ore-grade prediction at Pilbara and Hunter Valley operations",
+      "date": "2026-03-30"
+    },
+    {
+      "industry": "Pharmaceutical Manufacturing",
+      "direction": "up",
+      "reason": "CSL adopts AI-driven bioprocess optimisation at Melbourne and Broadmeadows facilities, cutting batch cycle times",
+      "date": "2026-03-30"
+    },
+    {
+      "industry": "Safety & Risk Engineering",
+      "direction": "up",
+      "reason": "Woodside deploys AI-assisted HAZOP analysis at Karratha LNG — reducing manual review time while flagging novel failure modes",
+      "date": "2026-03-30"
+    },
+    {
+      "industry": "Quality Control & Analytics",
+      "direction": "up",
+      "reason": "Orica integrates AI-powered real-time NIR spectroscopy for explosives QC, replacing manual lab sampling at multiple sites",
+      "date": "2026-03-30"
+    }
+  ],
+  "insights": [
+    {
+      "title": "Process simulation is AI's first beachhead in ChemE",
+      "body": "Process design and simulation has the highest theoretical AI coverage of any ChemE sub-sector — and observed adoption is catching up fast. AspenTech, AVEVA, and Honeywell are all embedding AI into their flagship simulation tools. Australian chemical engineers who can operate AI-assisted Aspen Plus or HYSYS workflows will have a significant advantage."
+    },
+    {
+      "title": "Mining drives observed adoption in Australia",
+      "body": "Australia's mining and minerals processing sector leads in observed AI coverage, driven by BHP, Rio Tinto, and Fortescue investing heavily in autonomous operations, predictive maintenance, and real-time ore-grade analytics. The Pilbara is one of the world's most AI-intensive industrial environments. ChemE graduates with data science skills are in high demand here."
+    },
+    {
+      "title": "The gap in safety and water is your opportunity",
+      "body": "Safety & Risk Engineering and Water & Wastewater Treatment have large gaps between theoretical and observed AI coverage. These are critical sectors — SA Water, Melbourne Water, and Yarra Valley Water are all under pressure to modernise. Chemical engineers who can bridge AI capability with regulatory compliance and safety standards will be the ones closing this gap."
+    }
+  ]
+}

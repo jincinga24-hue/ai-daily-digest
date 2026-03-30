@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
+  <title>AI Readiness by Role | Chemical Engineering | The Daily AI Shift</title>
+  <meta name="description" content="Role-specific AI exposure scores for Australian chemical engineering roles — see which ChemE careers face the most disruption and where the biggest opportunities lie.">
+  <meta property="og:title" content="AI Readiness by Role | The Daily AI Shift">
+  <meta property="og:description" content="Role-specific AI exposure scores for Australian chemical engineering careers.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="readiness.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#005cba',
+            'primary-dark': '#004a99',
+            surface: '#f9f9fb',
+            card: '#ffffff',
+            ink: '#2d3338',
+            muted: '#6b7280'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .progress-bar-track {
+      height: 8px;
+      border-radius: 4px;
+      background: #e5e7eb;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 0.6s ease;
+    }
+    .score-green  { background: #22c55e; }
+    .score-yellow { background: #f59e0b; }
+    .score-red    { background: #ef4444; }
+  </style>
+</head>
+<body class="bg-surface text-ink min-h-screen">
+
+  <nav id="main-nav"></nav>
+
+  <header class="pt-24 pb-10 border-b border-gray-200">
+    <div class="max-w-5xl mx-auto px-6">
+      <p class="text-xs font-semibold uppercase tracking-widest text-primary mb-3">Careers</p>
+      <h1 class="text-4xl md:text-5xl font-black tracking-tight text-ink mb-3">AI READINESS</h1>
+      <p class="text-sm font-semibold uppercase tracking-widest text-primary mb-2">By Role · Australian Chemical Engineering</p>
+      <p class="text-lg text-muted max-w-xl">How exposed is your ChemE role to AI disruption — and where are the biggest opportunities? Scores reflect current AI deployment trends across Australian industry.</p>
+      <p class="text-sm text-muted mt-2">Last updated: <span id="readiness-date" class="font-medium text-ink">—</span></p>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-6 py-12">
+
+    <!-- Legend -->
+    <div class="flex flex-wrap gap-6 mb-10">
+      <div class="flex items-center gap-2">
+        <span class="w-3 h-3 rounded-full bg-green-500 inline-block"></span>
+        <span class="text-xs text-muted font-medium">Low exposure (&lt;40)</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="w-3 h-3 rounded-full bg-amber-400 inline-block"></span>
+        <span class="text-xs text-muted font-medium">Moderate exposure (40–65)</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
+        <span class="text-xs text-muted font-medium">High exposure (&gt;65)</span>
+      </div>
+    </div>
+
+    <div id="readiness-cards" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="loading-skeleton h-48"></div>
+      <div class="loading-skeleton h-48"></div>
+      <div class="loading-skeleton h-48"></div>
+      <div class="loading-skeleton h-48"></div>
+    </div>
+
+  </main>
+
+  <footer class="border-t border-gray-200 py-8">
+    <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-muted">
+      <span>&copy; 2026 The Daily AI Shift. Built with Claude Code.</span>
+      <div class="flex items-center gap-4"><a href="feed.xml" class="text-xs text-muted hover:text-primary transition-colors font-medium" title="RSS Feed">RSS</a><span class="font-semibold uppercase tracking-widest text-ink">IMPACT</span></div>
+    </div>
+  </footer>
+
+  <script src="assets/js/utils.js"></script>
+  <script>
+    renderNav('readiness', '');
+
+    fetch('assets/data/readiness-scores.json')
+      .then(r => r.json())
+      .then(data => {
+        const dateEl = document.getElementById('readiness-date');
+        if (dateEl && data.lastUpdated) dateEl.textContent = formatDate(data.lastUpdated);
+        renderReadinessCards(data.roles || []);
+      })
+      .catch(err => {
+        const container = document.getElementById('readiness-cards');
+        if (container) container.innerHTML = '<p class="col-span-2 text-center text-muted py-12">Failed to load readiness data. Please try again later.</p>';
+        console.error('Error loading readiness data:', err);
+      });
+
+    function scoreColourClass(score) {
+      if (score < 40)  return 'score-green';
+      if (score <= 65) return 'score-yellow';
+      return 'score-red';
+    }
+
+    function scoreLabelClass(score) {
+      if (score < 40)  return 'text-green-600';
+      if (score <= 65) return 'text-amber-500';
+      return 'text-red-500';
+    }
+
+    function trendConfig(trend) {
+      const map = {
+        rising:  { symbol: '↑', colour: 'text-red-500',     label: 'Rising' },
+        falling: { symbol: '↓', colour: 'text-emerald-600', label: 'Falling' },
+        stable:  { symbol: '→', colour: 'text-amber-500',   label: 'Stable' }
+      };
+      return map[trend] || map.stable;
+    }
+
+    function countUp(el, target, duration) {
+      const start = performance.now();
+      function step(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        el.textContent = Math.round(progress * target);
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    function observeScoreCounters(container) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          observer.unobserve(entry.target);
+          const scoreEl = entry.target.querySelector('[data-score]');
+          if (scoreEl) {
+            const target = parseInt(scoreEl.dataset.score, 10);
+            countUp(scoreEl, target, 1000);
+          }
+        });
+      }, { threshold: 0.2 });
+      container.querySelectorAll('.readiness-card').forEach(card => observer.observe(card));
+    }
+
+    function renderReadinessCards(roles) {
+      const container = document.getElementById('readiness-cards');
+      if (!container) return;
+
+      const cardsMarkup = roles.map(role => {
+        const barClass  = scoreColourClass(role.exposureScore);
+        const textClass = scoreLabelClass(role.exposureScore);
+        const trend     = trendConfig(role.trend);
+
+        const threats = role.topThreats.map(t =>
+          `<li class="flex items-start gap-1.5"><span class="mt-0.5 shrink-0 text-red-400">✕</span><span>${escapeHtml(t)}</span></li>`
+        ).join('');
+
+        const opportunities = role.topOpportunities.map(o =>
+          `<li class="flex items-start gap-1.5"><span class="mt-0.5 shrink-0 text-emerald-500">✓</span><span>${escapeHtml(o)}</span></li>`
+        ).join('');
+
+        return (
+          `<div class="readiness-card bg-card border border-gray-200 rounded-xl p-6 flex flex-col gap-4">` +
+
+            `<div>` +
+              `<div class="flex items-start justify-between gap-2 mb-1">` +
+                `<div>` +
+                  `<h2 class="text-base font-bold text-ink">${escapeHtml(role.title)}</h2>` +
+                  `<p class="text-xs text-muted">${escapeHtml(role.location)}</p>` +
+                `</div>` +
+                `<span class="text-xs font-semibold ${trend.colour} shrink-0">${trend.symbol} ${trend.label}</span>` +
+              `</div>` +
+              `<div class="flex items-center gap-3 mt-3">` +
+                `<div class="progress-bar-track flex-1">` +
+                  `<div class="progress-bar-fill ${barClass}" style="width:${role.exposureScore}%"></div>` +
+                `</div>` +
+                `<span class="text-sm font-bold ${textClass} w-10 text-right" data-score="${role.exposureScore}">0</span>` +
+              `</div>` +
+              `<p class="text-[10px] font-semibold uppercase tracking-widest ${textClass} mt-1">Exposure Score</p>` +
+            `</div>` +
+
+            `<div class="grid grid-cols-2 gap-4 text-xs">` +
+              `<div>` +
+                `<p class="font-semibold text-ink uppercase tracking-widest text-[10px] mb-2">Top Threats</p>` +
+                `<ul class="space-y-1 text-muted">${threats}</ul>` +
+              `</div>` +
+              `<div>` +
+                `<p class="font-semibold text-ink uppercase tracking-widest text-[10px] mb-2">Top Opportunities</p>` +
+                `<ul class="space-y-1 text-muted">${opportunities}</ul>` +
+              `</div>` +
+            `</div>` +
+
+            `<blockquote class="border-l-2 border-primary pl-3 text-xs text-muted italic leading-relaxed">` +
+              escapeHtml(role.advice) +
+            `</blockquote>` +
+
+          `</div>`
+        );
+      }).join('');
+      container.innerHTML = cardsMarkup;
+      observeScoreCounters(container);
+    }
+  </script>
+</body>
+</html>

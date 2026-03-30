@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
+  <title>Community | Australian ChemEs on AI | The Daily AI Shift</title>
+  <meta name="description" content="Real field reports from Australian chemical engineers on how they're using AI tools — what works, what doesn't, and what to watch out for.">
+  <meta property="og:title" content="Community | Australian ChemEs on AI | The Daily AI Shift">
+  <meta property="og:description" content="Curated field reports from Australian chemical engineers using AI in process design, mining, pharma, and more.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#005cba',
+            'primary-dark': '#004a99',
+            surface: '#f9f9fb',
+            card: '#ffffff',
+            ink: '#2d3338',
+            muted: '#6b7280'
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+
+    .verdict-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.25rem 0.875rem;
+      border-radius: 9999px;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      border: 1.5px solid #e5e7eb;
+      background: #fff;
+      color: #6b7280;
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
+    }
+    .verdict-btn:hover { border-color: #005cba; color: #005cba; }
+    .verdict-btn.active { border-color: #005cba; background: #005cba; color: #fff; }
+  </style>
+</head>
+<body class="bg-surface text-ink min-h-screen">
+  <nav id="main-nav"></nav>
+
+  <header class="pt-24 pb-8 border-b border-gray-200">
+    <div class="max-w-5xl mx-auto px-6">
+      <p class="text-xs font-semibold uppercase tracking-widest text-primary mb-3">Field Reports</p>
+      <h1 class="text-4xl md:text-5xl font-black tracking-tight text-ink mb-3">COMMUNITY</h1>
+      <p class="text-sm font-semibold uppercase tracking-widest text-primary mb-2">What Australian ChemEs are actually using</p>
+      <p class="text-lg text-muted max-w-lg">Real-world accounts from chemical engineers across mining, oil &amp; gas, pharma, and water — what's working, what's failing, and what needs watching.</p>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-6 py-10">
+    <!-- Filters row -->
+    <div class="flex flex-col sm:flex-row sm:items-center gap-4 mb-8">
+      <!-- Verdict filter buttons -->
+      <div class="flex flex-wrap gap-2">
+        <button class="verdict-btn active" data-verdict="all">All</button>
+        <button class="verdict-btn" data-verdict="useful">Useful</button>
+        <button class="verdict-btn" data-verdict="mixed">Mixed</button>
+        <button class="verdict-btn" data-verdict="not-useful">Not Useful</button>
+      </div>
+
+      <!-- Sector dropdown -->
+      <div class="sm:ml-auto flex items-center gap-2">
+        <label for="sector-filter" class="text-[11px] font-semibold uppercase tracking-widest text-muted whitespace-nowrap">Sector</label>
+        <select id="sector-filter"
+          class="text-xs border border-gray-200 rounded-lg px-3 py-1.5 bg-white text-ink focus:outline-none focus:ring-2 focus:ring-primary/30">
+          <option value="all">All sectors</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Report count -->
+    <p id="report-count" class="text-xs text-muted mb-5"></p>
+
+    <!-- Feed grid -->
+    <div id="community-feed" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div class="loading-skeleton"></div>
+      <div class="loading-skeleton"></div>
+      <div class="loading-skeleton"></div>
+      <div class="loading-skeleton"></div>
+    </div>
+
+    <!-- Empty state -->
+    <div id="community-empty" class="hidden text-center py-16">
+      <p class="text-sm text-muted">No reports match the selected filters.</p>
+    </div>
+  </main>
+
+  <footer class="border-t border-gray-200 py-8">
+    <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-muted">
+      <span>&copy; 2026 The Daily AI Shift. Built with Claude Code.</span>
+      <div class="flex items-center gap-4"><a href="feed.xml" class="text-xs text-muted hover:text-primary transition-colors font-medium" title="RSS Feed">RSS</a><span class="font-semibold uppercase tracking-widest text-ink">IMPACT</span></div>
+    </div>
+  </footer>
+
+  <script src="assets/js/utils.js"></script>
+  <script src="assets/js/community.js"></script>
+</body>
+</html>

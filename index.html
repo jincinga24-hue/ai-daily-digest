@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
+  <title>The Daily AI Shift | Chemical Engineering x AI</title>
+  <meta name="description" content="Daily AI news and analysis for Australian chemical engineers and ChemE students — tracking how artificial intelligence reshapes process engineering, mining, oil and gas, pharma, and related careers in Australia.">
+  <meta property="og:title" content="The Daily AI Shift | Chemical Engineering x AI">
+  <meta property="og:description" content="Daily AI news and analysis for Australian chemical engineers — tracking how AI reshapes ChemE careers and industries, one day at a time.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#005cba',
+            'primary-dark': '#004a99',
+            surface: '#f9f9fb',
+            card: '#ffffff',
+            ink: '#2d3338',
+            muted: '#6b7280'
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <link rel="alternate" type="application/rss+xml" title="The Daily AI Shift" href="feed.xml">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>body { font-family: 'Inter', system-ui, sans-serif; }</style>
+</head>
+<body class="bg-surface text-ink min-h-screen">
+
+  <nav id="main-nav"></nav>
+
+  <!-- Hero -->
+  <header class="pt-24 pb-8 border-b border-gray-200">
+    <div class="max-w-5xl mx-auto px-6">
+      <p class="text-xs font-semibold uppercase tracking-widest text-primary mb-3">The Daily AI Shift</p>
+      <h1 class="text-6xl md:text-8xl font-black tracking-tight text-ink leading-none mb-4">IMPACT</h1>
+      <p class="text-sm font-semibold uppercase tracking-widest text-primary mb-2">Chemical Engineering x AI</p>
+      <p class="text-lg text-muted max-w-md">Tracking how AI is reshaping chemical engineering careers and industries in Australia — one day at a time.</p>
+    </div>
+  </header>
+
+  <!-- Calendar Blog -->
+  <main class="max-w-5xl mx-auto px-6 py-10">
+    <!-- Month nav -->
+    <div class="flex items-center justify-between mb-2">
+      <button id="prev-month" class="w-11 h-11 flex items-center justify-center text-muted hover:text-primary transition-colors">
+        <span class="material-symbols-outlined text-xl">chevron_left</span>
+      </button>
+      <h2 id="month-label" class="text-sm font-bold uppercase tracking-widest text-ink"></h2>
+      <button id="next-month" class="w-11 h-11 flex items-center justify-center text-muted hover:text-primary transition-colors">
+        <span class="material-symbols-outlined text-xl">chevron_right</span>
+      </button>
+    </div>
+    <p class="text-xs text-muted text-center mb-4">Click a date to read that day's digest</p>
+
+    <!-- Day headers -->
+    <div class="grid grid-cols-7 gap-1 mb-1">
+      <div class="text-center text-[10px] font-semibold uppercase tracking-widest text-muted py-2">Mon</div>
+      <div class="text-center text-[10px] font-semibold uppercase tracking-widest text-muted py-2">Tue</div>
+      <div class="text-center text-[10px] font-semibold uppercase tracking-widest text-muted py-2">Wed</div>
+      <div class="text-center text-[10px] font-semibold uppercase tracking-widest text-muted py-2">Thu</div>
+      <div class="text-center text-[10px] font-semibold uppercase tracking-widest text-muted py-2">Fri</div>
+      <div class="text-center text-[10px] font-semibold uppercase tracking-widest text-muted py-2">Sat</div>
+      <div class="text-center text-[10px] font-semibold uppercase tracking-widest text-muted py-2">Sun</div>
+    </div>
+
+    <!-- Calendar grid -->
+    <div id="calendar-grid" class="grid grid-cols-7 gap-1">
+      <!-- JS renders days here -->
+    </div>
+
+    <!-- Selected post preview -->
+    <div id="post-preview" class="mt-8 hidden">
+      <div class="border border-gray-200 rounded-lg p-6 bg-card">
+        <div class="flex items-start justify-between gap-4">
+          <div class="flex-1">
+            <p id="preview-date" class="text-xs font-semibold uppercase tracking-widest text-primary mb-2"></p>
+            <h3 id="preview-title" class="text-xl font-bold text-ink mb-2"></h3>
+            <p id="preview-excerpt" class="text-sm text-muted leading-relaxed mb-4"></p>
+            <div id="preview-tags" class="flex flex-wrap gap-2 mb-4"></div>
+            <a id="preview-link" href="#" class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-primary hover:text-primary-dark transition-colors">
+              READ POST <span class="material-symbols-outlined text-sm ml-1">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="border-t border-gray-200 py-8">
+    <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-muted">
+      <span>&copy; 2026 The Daily AI Shift. Built with Claude Code.</span>
+      <div class="flex items-center gap-4">
+        <a href="feed.xml" class="text-xs text-muted hover:text-primary transition-colors font-medium" title="RSS Feed">RSS</a>
+        <span class="font-semibold uppercase tracking-widest text-ink">IMPACT</span>
+      </div>
+    </div>
+  </footer>
+
+  <noscript>This site requires JavaScript and a local server. Run: python3 -m http.server 8090</noscript>
+  <script src="assets/js/utils.js"></script>
+  <script src="assets/js/blog.js"></script>
+</body>
+</html>

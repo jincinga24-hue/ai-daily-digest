@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
+  <title>Jobs &amp; Internships | ChemE x AI | The Daily AI Shift</title>
+  <meta name="description" content="Australian Chemical Engineering internships and graduate roles where AI skills matter — curated for undergrad and postgrad ChemEs.">
+  <meta property="og:title" content="Jobs &amp; Internships | ChemE x AI | The Daily AI Shift">
+  <meta property="og:description" content="Internships, graduate roles, and research positions for Australian ChemEs with AI skills.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#005cba',
+            'primary-dark': '#004a99',
+            surface: '#f9f9fb',
+            card: '#ffffff',
+            ink: '#2d3338',
+            muted: '#6b7280'
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+
+    .filter-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.6rem center;
+      padding-right: 1.8rem;
+    }
+  </style>
+</head>
+<body class="bg-surface text-ink min-h-screen">
+  <nav id="main-nav"></nav>
+
+  <header class="pt-24 pb-8 border-b border-gray-200">
+    <div class="max-w-5xl mx-auto px-6">
+      <p class="text-xs font-semibold uppercase tracking-widest text-primary mb-3">Opportunities</p>
+      <h1 class="text-4xl md:text-5xl font-black tracking-tight text-ink mb-3">JOBS &amp; INTERNSHIPS</h1>
+      <p class="text-sm font-semibold uppercase tracking-widest text-primary mb-2">Chemical Engineering x AI — Australian opportunities</p>
+      <p class="text-lg text-muted max-w-lg">Internships for undergrads, graduate roles and research positions for postgrads — filtered to where AI skills actually matter.</p>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-6 py-10">
+
+    <!-- Filter controls -->
+    <div class="flex flex-wrap gap-3 items-center mb-8">
+
+      <!-- Level -->
+      <div class="flex items-center gap-2">
+        <label for="level-filter" class="text-[11px] font-semibold uppercase tracking-widest text-muted whitespace-nowrap">Level</label>
+        <select id="level-filter" class="filter-select text-xs border border-gray-200 rounded-lg px-3 py-1.5 bg-white text-ink focus:outline-none focus:ring-2 focus:ring-primary/30">
+          <option value="all">All</option>
+          <option value="undergrad">Undergrad</option>
+          <option value="postgrad">Postgrad</option>
+        </select>
+      </div>
+
+      <!-- Type -->
+      <div class="flex items-center gap-2">
+        <label for="type-filter" class="text-[11px] font-semibold uppercase tracking-widest text-muted whitespace-nowrap">Type</label>
+        <select id="type-filter" class="filter-select text-xs border border-gray-200 rounded-lg px-3 py-1.5 bg-white text-ink focus:outline-none focus:ring-2 focus:ring-primary/30">
+          <option value="all">All</option>
+          <option value="internship">Internship</option>
+          <option value="graduate">Graduate</option>
+          <option value="research">Research</option>
+        </select>
+      </div>
+
+      <!-- AI Relevance -->
+      <div class="flex items-center gap-2">
+        <label for="ai-filter" class="text-[11px] font-semibold uppercase tracking-widest text-muted whitespace-nowrap">AI Relevance</label>
+        <select id="ai-filter" class="filter-select text-xs border border-gray-200 rounded-lg px-3 py-1.5 bg-white text-ink focus:outline-none focus:ring-2 focus:ring-primary/30">
+          <option value="all">All</option>
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
+      </div>
+
+      <!-- Sector -->
+      <div class="flex items-center gap-2 sm:ml-auto">
+        <label for="sector-filter" class="text-[11px] font-semibold uppercase tracking-widest text-muted whitespace-nowrap">Sector</label>
+        <select id="sector-filter" class="filter-select text-xs border border-gray-200 rounded-lg px-3 py-1.5 bg-white text-ink focus:outline-none focus:ring-2 focus:ring-primary/30">
+          <option value="all">All sectors</option>
+        </select>
+      </div>
+
+    </div>
+
+    <!-- Count -->
+    <p id="jobs-count" class="text-xs text-muted mb-5"></p>
+
+    <!-- Job cards grid -->
+    <div id="jobs-feed" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <!-- Skeleton placeholders -->
+      <div class="loading-skeleton"></div>
+      <div class="loading-skeleton"></div>
+      <div class="loading-skeleton"></div>
+      <div class="loading-skeleton"></div>
+    </div>
+
+    <!-- Empty state -->
+    <div id="jobs-empty" class="hidden text-center py-16">
+      <p class="text-sm text-muted">No opportunities match the selected filters.</p>
+    </div>
+
+  </main>
+
+  <footer class="border-t border-gray-200 py-8">
+    <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-muted">
+      <span>&copy; 2026 The Daily AI Shift. Built with Claude Code.</span>
+      <div class="flex items-center gap-4"><a href="feed.xml" class="text-xs text-muted hover:text-primary transition-colors font-medium" title="RSS Feed">RSS</a><span class="font-semibold uppercase tracking-widest text-ink">IMPACT</span></div>
+    </div>
+  </footer>
+
+  <script src="assets/js/utils.js"></script>
+  <script src="assets/js/jobs.js"></script>
+  <script>
+    renderNav('jobs');
+  </script>
+</body>
+</html>

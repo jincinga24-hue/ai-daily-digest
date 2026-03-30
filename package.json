@@ -1,0 +1,11 @@
+{
+  "name": "ai-daily-digest",
+  "version": "1.0.0",
+  "description": "The Daily AI Shift — daily AI news blog with radar chart and resource feed",
+  "scripts": {
+    "start": "npx serve . -p 3000"
+  },
+  "devDependencies": {
+    "serve": "^14.0.0"
+  }
+}

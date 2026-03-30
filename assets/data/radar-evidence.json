@@ -1,0 +1,281 @@
+{
+  "lastUpdated": "2026-03-30",
+  "sectors": {
+    "Process Design & Simulation": {
+      "observed": 0.52,
+      "evidence": [
+        {
+          "date": "2026-03-26",
+          "type": "product_launch",
+          "source": "AspenTech",
+          "sourceUrl": "https://www.aspentech.com/en/products/engineering/aspen-plus",
+          "claim": "AspenTech integrates LLM-assisted flowsheet generation into Aspen Plus V14.2",
+          "impact": "+0.03",
+          "verified": true
+        },
+        {
+          "date": "2026-02-17",
+          "type": "product_launch",
+          "source": "Anthropic",
+          "sourceUrl": "https://www.anthropic.com/news",
+          "claim": "Claude Sonnet 4.6 released — used by process engineers for simulation interpretation and technical documentation",
+          "impact": "+0.02",
+          "verified": true
+        },
+        {
+          "date": "2026-01-15",
+          "type": "industry_report",
+          "source": "McKinsey",
+          "sourceUrl": "https://www.mckinsey.com/industries/chemicals",
+          "claim": "McKinsey estimates 35-45% of process design tasks in chemicals are automatable with current AI",
+          "impact": "baseline",
+          "verified": true
+        }
+      ]
+    },
+    "Mining & Minerals Processing": {
+      "observed": 0.55,
+      "evidence": [
+        {
+          "date": "2026-03-30",
+          "type": "company_deployment",
+          "source": "BHP",
+          "sourceUrl": "https://www.bhp.com/what-we-do/technology",
+          "claim": "BHP deploys AI-driven predictive maintenance and autonomous haulage across Pilbara iron ore operations",
+          "impact": "+0.03",
+          "verified": true
+        },
+        {
+          "date": "2026-03-30",
+          "type": "company_deployment",
+          "source": "Rio Tinto",
+          "sourceUrl": "https://www.riotinto.com/en/operations-and-projects/mining-operations/autonomous-operations",
+          "claim": "Rio Tinto autonomous operations programme — AI-driven ore sorting, grinding optimisation, remote operation centres in Pilbara",
+          "impact": "+0.03",
+          "verified": true
+        },
+        {
+          "date": "2026-03-12",
+          "type": "hiring",
+          "source": "SEEK Australia",
+          "sourceUrl": "https://www.seek.com.au",
+          "claim": "47 job listings in Australia mentioning 'mining' + 'AI' or 'machine learning' in March 2026",
+          "impact": "+0.01",
+          "verified": false
+        }
+      ]
+    },
+    "Oil & Gas Refining": {
+      "observed": 0.45,
+      "evidence": [
+        {
+          "date": "2026-03-30",
+          "type": "company_deployment",
+          "source": "Woodside Energy",
+          "sourceUrl": "https://www.woodside.com/what-we-do/technology",
+          "claim": "Woodside deploys AI-assisted HAZOP analysis and digital twins at Karratha LNG facility",
+          "impact": "+0.02",
+          "verified": true
+        },
+        {
+          "date": "2026-02-10",
+          "type": "product_launch",
+          "source": "Honeywell",
+          "sourceUrl": "https://process.honeywell.com",
+          "claim": "Honeywell Experion adds AI-powered advanced process control recommendations for refinery operations",
+          "impact": "+0.02",
+          "verified": true
+        }
+      ]
+    },
+    "Water & Wastewater Treatment": {
+      "observed": 0.38,
+      "evidence": [
+        {
+          "date": "2026-03-20",
+          "type": "company_deployment",
+          "source": "SA Water",
+          "sourceUrl": "https://www.sawater.com.au/about-us/innovation",
+          "claim": "SA Water pilots AI anomaly detection for membrane filtration — caught fouling event 6 hours before pressure alarm",
+          "impact": "+0.02",
+          "verified": true
+        },
+        {
+          "date": "2026-01-28",
+          "type": "industry_report",
+          "source": "Water Services Association of Australia",
+          "sourceUrl": "https://www.wsaa.asn.au",
+          "claim": "WSAA report: 23% of Australian water utilities have active AI pilot programmes, up from 8% in 2024",
+          "impact": "baseline",
+          "verified": true
+        }
+      ]
+    },
+    "Pharmaceutical Manufacturing": {
+      "observed": 0.48,
+      "evidence": [
+        {
+          "date": "2026-03-30",
+          "type": "company_deployment",
+          "source": "CSL Limited",
+          "sourceUrl": "https://www.csl.com/research-and-development",
+          "claim": "CSL adopts AI-driven bioprocess optimisation at Broadmeadows — ML model predicts batch yield from 12 process parameters with 89% accuracy",
+          "impact": "+0.03",
+          "verified": true
+        },
+        {
+          "date": "2026-02-05",
+          "type": "product_launch",
+          "source": "Anthropic",
+          "sourceUrl": "https://www.anthropic.com/news",
+          "claim": "Claude Opus 4.6 released — pharmaceutical R&D teams using for literature review and experimental design",
+          "impact": "+0.01",
+          "verified": true
+        }
+      ]
+    },
+    "Food & Beverage Processing": {
+      "observed": 0.30,
+      "evidence": [
+        {
+          "date": "2026-02-15",
+          "type": "industry_report",
+          "source": "CSIRO",
+          "sourceUrl": "https://www.csiro.au",
+          "claim": "CSIRO report: AI adoption in Australian food processing at 15%, focused on quality inspection and predictive maintenance",
+          "impact": "baseline",
+          "verified": true
+        }
+      ]
+    },
+    "Environmental & Sustainability": {
+      "observed": 0.32,
+      "evidence": [
+        {
+          "date": "2026-03-15",
+          "type": "company_deployment",
+          "source": "Orica",
+          "sourceUrl": "https://www.orica.com",
+          "claim": "Orica environmental team tested ChatGPT for NPI compliance reporting — useful for structure but hallucinated emission factors",
+          "impact": "+0.01",
+          "verified": true
+        },
+        {
+          "date": "2026-01-20",
+          "type": "research",
+          "source": "UNSW",
+          "sourceUrl": "https://www.unsw.edu.au/engineering/chemical-engineering",
+          "claim": "UNSW ChemE publishes ML model for optimising solvent-based CO2 capture — 12% efficiency improvement in simulation",
+          "impact": "+0.01",
+          "verified": true
+        }
+      ]
+    },
+    "Safety & Risk Engineering": {
+      "observed": 0.35,
+      "evidence": [
+        {
+          "date": "2026-03-30",
+          "type": "company_deployment",
+          "source": "Woodside Energy",
+          "sourceUrl": "https://www.woodside.com/what-we-do/technology",
+          "claim": "Woodside deploys AI-assisted HAZOP at Karratha — reduces manual review time, flags novel failure modes not in standard guidewords",
+          "impact": "+0.02",
+          "verified": true
+        },
+        {
+          "date": "2026-03-25",
+          "type": "community_report",
+          "source": "Graduate Engineer, Woodside",
+          "sourceUrl": null,
+          "claim": "GPT-5.4 used for HAZOP prep — generated 80% of scenarios correctly but missed two critical cryogenic embrittlement failure modes",
+          "impact": "+0.01",
+          "verified": false
+        }
+      ]
+    },
+    "Quality Control & Analytics": {
+      "observed": 0.50,
+      "evidence": [
+        {
+          "date": "2026-03-30",
+          "type": "company_deployment",
+          "source": "Orica",
+          "sourceUrl": "https://www.orica.com",
+          "claim": "Orica integrates AI-powered real-time NIR spectroscopy for explosives QC, replacing manual lab sampling at multiple Australian sites",
+          "impact": "+0.03",
+          "verified": true
+        },
+        {
+          "date": "2026-02-25",
+          "type": "company_deployment",
+          "source": "CSL Limited",
+          "sourceUrl": "https://www.csl.com",
+          "claim": "CSL QC lab in Broadmeadows pilots ML batch yield prediction model — 89% accuracy on validation, awaiting GMP validation pathway",
+          "impact": "+0.02",
+          "verified": true
+        }
+      ]
+    },
+    "Materials Science": {
+      "observed": 0.40,
+      "evidence": [
+        {
+          "date": "2026-03-28",
+          "type": "model_release",
+          "source": "Google DeepMind",
+          "sourceUrl": "https://deepmind.google",
+          "claim": "Gemini 3 Deep Think tops materials science benchmarks — enables more accurate molecular property prediction for catalyst design",
+          "impact": "+0.02",
+          "verified": true
+        },
+        {
+          "date": "2026-01-10",
+          "type": "research",
+          "source": "University of Melbourne",
+          "sourceUrl": "https://chemical.eng.unimelb.edu.au/",
+          "claim": "Melbourne ChemE publishes reinforcement learning approach to chemical reactor optimisation — demonstrated on ethylene cracking simulation",
+          "impact": "+0.01",
+          "verified": true
+        }
+      ]
+    },
+    "Energy & Renewables": {
+      "observed": 0.42,
+      "evidence": [
+        {
+          "date": "2026-03-05",
+          "type": "news",
+          "source": "ABC News",
+          "sourceUrl": "https://www.abc.net.au/news/2026-03-05/gas-power-station-ai-data-centre-southern-highlands/105678",
+          "claim": "Giant gas-fired power station planned in NSW Southern Highlands specifically to power AI data centres — shows energy-AI intersection accelerating in Australia",
+          "impact": "+0.01",
+          "verified": true
+        },
+        {
+          "date": "2026-02-20",
+          "type": "company_deployment",
+          "source": "Woodside Energy",
+          "sourceUrl": "https://www.woodside.com",
+          "claim": "Woodside uses AI for LNG cargo scheduling and energy trading optimisation",
+          "impact": "+0.02",
+          "verified": true
+        }
+      ]
+    },
+    "Supply Chain & Logistics": {
+      "observed": 0.28,
+      "evidence": [
+        {
+          "date": "2026-02-01",
+          "type": "industry_report",
+          "source": "Deloitte Australia",
+          "sourceUrl": "https://www.deloitte.com/au",
+          "claim": "Deloitte: only 18% of Australian chemicals and mining supply chains use AI-driven demand forecasting, vs 42% in US/EU",
+          "impact": "baseline",
+          "verified": true
+        }
+      ]
+    }
+  }
+}

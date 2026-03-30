@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
+  <title>Smoke Tests | The Daily AI Shift</title>
+  <style>
+    body { font-family: monospace; padding: 2rem; background: #0f0f1a; color: #e8e8f0; }
+    h1 { color: #6366f1; margin-bottom: 1.5rem; }
+    .suite { margin-bottom: 2rem; }
+    .suite h2 { color: #a5a5c0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+    .test { padding: 0.4rem 0.75rem; margin: 0.25rem 0; border-radius: 4px; font-size: 0.9rem; }
+    .pass { background: #1a2e1a; color: #4ade80; border-left: 3px solid #4ade80; }
+    .fail { background: #2e1a1a; color: #f87171; border-left: 3px solid #f87171; }
+    .summary { margin-top: 1.5rem; font-size: 1rem; padding: 0.75rem 1rem; border-radius: 6px; }
+    .summary.all-pass { background: #1a2e1a; color: #4ade80; }
+    .summary.has-fail { background: #2e1a1a; color: #f87171; }
+  </style>
+</head>
+<body>
+  <h1>Smoke Tests</h1>
+  <div id="output"></div>
+  <div id="summary"></div>
+
+  <script src="../assets/js/utils.js"></script>
+  <script src="../assets/js/blog.js"></script>
+  <script src="../assets/js/learn.js"></script>
+  <script>
+    const suites = [];
+    let currentSuite = null;
+
+    function suite(name) {
+      currentSuite = { name, results: [] };
+      suites.push(currentSuite);
+    }
+
+    function assert(description, actual, expected) {
+      const pass = actual === expected;
+      currentSuite.results.push({ description, pass, actual, expected });
+    }
+
+    function assertContains(description, haystack, needle) {
+      const pass = typeof haystack === 'string' && haystack.includes(needle);
+      currentSuite.results.push({ description, pass, actual: pass ? '(contains)' : haystack, expected: `(contains) ${needle}` });
+    }
+
+    // ── utils.js ──────────────────────────────────────────────────────────────
+    suite('utils.js');
+
+    assert("escapeHtml('<script>') === '&lt;script&gt;'", escapeHtml('<script>'), '&lt;script&gt;');
+    assert("escapeHtml('') === ''", escapeHtml(''), '');
+    assert("escapeHtml(null) === ''", escapeHtml(null), '');
+    assert("escapeHtml('&<>\"') === '&amp;&lt;&gt;&quot;'", escapeHtml('&<>"'), '&amp;&lt;&gt;&quot;');
+
+    assert("formatDate('2026-03-29') === 'Mar 29, 2026'", formatDate('2026-03-29'), 'Mar 29, 2026');
+    assert("formatDate('') === ''", formatDate(''), '');
+    assert("formatDate('bad-input') returns 'bad-input'", formatDate('bad-input'), 'bad-input');
+    assert("formatDate(null) === ''", formatDate(null), '');
+
+    const navFixture = document.createElement('div');
+    navFixture.id = 'main-nav';
+    document.body.appendChild(navFixture);
+    renderNav('radar');
+    const activeLink = navFixture.querySelector('a.active');
+    assert("renderNav('radar') sets active class on radar link", activeLink ? activeLink.textContent : null, 'AI Impact Radar');
+
+    // mobile nav: clicking a link removes 'open' class
+    const toggleBtn = navFixture.querySelector('.nav-toggle');
+    const navLinks = navFixture.querySelector('.nav-links');
+    if (toggleBtn && navLinks) {
+      toggleBtn.click(); // open
+      const firstLink = navLinks.querySelector('a');
+      if (firstLink) firstLink.click(); // should close
+      assert("clicking nav link removes 'open' class from .nav-links", navLinks.classList.contains('open'), false);
+    }
+    document.body.removeChild(navFixture);
+
+    // ── blog.js ───────────────────────────────────────────────────────────────
+    suite('blog.js — renderBlogCard');
+
+    const mockPost = { slug: 'test-post', date: '2026-03-29', title: 'Test Post', excerpt: 'An excerpt.', tags: ['AI', 'Jobs'] };
+    const cardHtml = renderBlogCard(mockPost);
+
+    assertContains("renderBlogCard produces an article element", cardHtml, '<article');
+    assertContains("renderBlogCard includes correct href", cardHtml, 'href="posts/test-post.html"');
+    assertContains("renderBlogCard includes formatted date", cardHtml, 'Mar 29, 2026');
+    assertContains("renderBlogCard includes title", cardHtml, 'Test Post');
+    assertContains("renderBlogCard includes excerpt", cardHtml, 'An excerpt.');
+    assertContains("renderBlogCard renders tags", cardHtml, 'AI');
+
+    const xssPost = { slug: 'xss', date: '2026-01-01', title: '<script>alert(1)</script>', excerpt: '', tags: [] };
+    const xssCard = renderBlogCard(xssPost);
+    assertContains("renderBlogCard escapes XSS in title", xssCard, '&lt;script&gt;');
+
+    // ── learn.js ──────────────────────────────────────────────────────────────
+    suite('learn.js — filterResources');
+
+    const mockResources = [
+      { title: 'Article 1', url: 'https://example.com', type: 'article', author: 'Alice', description: 'Desc 1' },
+      { title: 'Video 1', url: 'https://youtube.com', type: 'youtube', author: 'Bob', description: 'Desc 2' },
+      { title: 'No Type', url: 'https://example.com/2' }
+    ];
+
+    const allResults = filterResources(mockResources, 'all');
+    assert("filterResources('all') returns all items", allResults.length, 3);
+
+    const articleResults = filterResources(mockResources, 'article');
+    assert("filterResources('article') returns 2 items (including typeless)", articleResults.length, 2);
+
+    const youtubeResults = filterResources(mockResources, 'youtube');
+    assert("filterResources('youtube') returns 1 item", youtubeResults.length, 1);
+
+    const typeless = filterResources(mockResources, 'all').find(r => r.title === 'No Type');
+    assert("filterResources defaults missing type to 'article'", typeless ? typeless.type : null, 'article');
+    assert("filterResources defaults missing author to ''", typeless ? typeless.author : null, '');
+    assert("filterResources defaults missing description to ''", typeless ? typeless.description : null, '');
+
+    // ── Render output ─────────────────────────────────────────────────────────
+    const output = document.getElementById('output');
+    let totalPassed = 0;
+    let totalFailed = 0;
+
+    suites.forEach(s => {
+      const suiteEl = document.createElement('div');
+      suiteEl.className = 'suite';
+      suiteEl.innerHTML = `<h2>${s.name}</h2>`;
+
+      s.results.forEach(r => {
+        const div = document.createElement('div');
+        div.className = `test ${r.pass ? 'pass' : 'fail'}`;
+        if (r.pass) {
+          div.textContent = `PASS  ${r.description}`;
+          totalPassed++;
+        } else {
+          div.textContent = `FAIL  ${r.description} — got: ${JSON.stringify(r.actual)}, expected: ${JSON.stringify(r.expected)}`;
+          totalFailed++;
+        }
+        suiteEl.appendChild(div);
+      });
+
+      output.appendChild(suiteEl);
+    });
+
+    const summary = document.getElementById('summary');
+    const total = totalPassed + totalFailed;
+    summary.className = `summary ${totalFailed === 0 ? 'all-pass' : 'has-fail'}`;
+    summary.textContent = `${totalPassed} passed, ${totalFailed} failed — ${total} total`;
+  </script>
+</body>
+</html>

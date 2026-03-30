@@ -1,0 +1,59 @@
+{
+  "lastUpdated": "2026-03-30",
+  "roles": [
+    {
+      "title": "Process Design Engineer",
+      "location": "Australia-wide",
+      "exposureScore": 78,
+      "trend": "rising",
+      "topThreats": ["AI-assisted simulation (AspenTech, AVEVA)", "Automated flowsheet generation", "LLM-based design review"],
+      "topOpportunities": ["AI co-pilot for HYSYS/Aspen Plus", "Digital twin orchestration", "AI-augmented energy optimisation"],
+      "advice": "Learn to work WITH AI simulation tools. Your process intuition + AI speed = unbeatable combination."
+    },
+    {
+      "title": "Mining Process Engineer",
+      "location": "Western Australia / Queensland",
+      "exposureScore": 72,
+      "trend": "rising",
+      "topThreats": ["Autonomous ore processing (BHP, Rio Tinto)", "AI predictive maintenance replacing routine inspections", "Real-time grade control AI"],
+      "topOpportunities": ["Remote operation centre engineering", "AI-human hybrid decision systems", "Sustainability analytics"],
+      "advice": "The Pilbara is already one of the most AI-intensive industrial environments on Earth. Position yourself at the human-AI interface."
+    },
+    {
+      "title": "Safety & Risk Engineer",
+      "location": "Australia-wide",
+      "exposureScore": 45,
+      "trend": "stable",
+      "topThreats": ["AI-assisted HAZOP may reduce team sizes", "Automated SIL verification", "AI-generated safety documentation"],
+      "topOpportunities": ["AI HAZOP facilitation", "Novel failure mode detection", "Real-time safety monitoring AI"],
+      "advice": "Safety judgement is hard to automate. Your role is defensible but evolving. Learn to validate AI safety recommendations."
+    },
+    {
+      "title": "Lab Analyst / QC Chemist",
+      "location": "Australia-wide",
+      "exposureScore": 65,
+      "trend": "rising",
+      "topThreats": ["Automated spectroscopy (NIR, FTIR)", "AI-driven sample scheduling", "Robotic lab automation"],
+      "topOpportunities": ["AI method development", "Predictive quality modelling", "Troubleshooting complex off-spec results"],
+      "advice": "Routine analysis is being automated. Move toward method development, troubleshooting, and AI-assisted interpretation."
+    },
+    {
+      "title": "Environmental / Sustainability Engineer",
+      "location": "Australia-wide",
+      "exposureScore": 38,
+      "trend": "rising",
+      "topThreats": ["AI emissions monitoring", "Automated compliance reporting", "Satellite + AI environmental tracking"],
+      "topOpportunities": ["Carbon accounting AI", "Circular economy optimisation", "ESG data analytics"],
+      "advice": "Regulation is your moat. AI can crunch the data but interpreting it within Australian environmental law requires human expertise."
+    },
+    {
+      "title": "Water Treatment Engineer",
+      "location": "SA / VIC / QLD",
+      "exposureScore": 42,
+      "trend": "rising",
+      "topThreats": ["AI dosing optimisation", "Predictive membrane fouling", "Automated SCADA alerts"],
+      "topOpportunities": ["Smart water network design", "AI-assisted treatment plant optimisation", "Climate adaptation modelling"],
+      "advice": "Water utilities like SA Water and Melbourne Water are early in AI adoption. Getting in now means you shape how it's deployed."
+    }
+  ]
+}

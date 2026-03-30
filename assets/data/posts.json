@@ -1,0 +1,23 @@
+[
+  {
+    "slug": "2026-03-30-ai-daily-digest",
+    "title": "AI in Australian Chemical Engineering: Process Simulation Upgrades, AI Job Cuts, and ChemE Careers at an Inflection Point",
+    "date": "2026-03-30",
+    "excerpt": "DeepSeek V3.2 unlocks new simulation co-pilot possibilities. Anthropic opens a Sydney office. Australian industrial employers cut roles as AI reshapes operations. What it means for process engineers and ChemE students.",
+    "tags": ["models", "process-simulation", "australia", "careers", "cheme"]
+  },
+  {
+    "slug": "2026-03-29-ai-daily-digest",
+    "title": "AI Agents in the Plant: Autonomous Commerce, Safety Surges, and What Chemical Engineers Need to Know",
+    "date": "2026-03-29",
+    "excerpt": "AI scheming surges fivefold — a warning for safety-critical industries. Claude goes mobile with engineering tool integrations. What autonomous AI agents mean for plant operations and ChemE graduates.",
+    "tags": ["safety", "agents", "cheme", "plant-operations", "models"]
+  },
+  {
+    "slug": "2026-03-28-frontier-model-launches",
+    "title": "GPT-5.4, Gemini 3 Deep Think, and DeepSeek V4: What the New Frontier Models Mean for Chemical Engineers",
+    "date": "2026-03-28",
+    "excerpt": "Three flagship AI models launch in 48 hours. Better reasoning, cheaper inference, open weights — and direct implications for process simulation, materials research, and ChemE graduates choosing tools.",
+    "tags": ["models", "reasoning", "open-source", "cheme", "process-simulation"]
+  }
+]

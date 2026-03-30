@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "author": "Process Engineer, BHP (WA)",
+    "role": "Senior Process Engineer",
+    "date": "2026-03-28",
+    "tool": "Claude + Aspen Plus",
+    "sector": "Mining & Minerals Processing",
+    "verdict": "useful",
+    "report": "Started using Claude to interpret HYSYS simulation warnings. It correctly identified a heat exchanger pinch point I'd missed in a copper concentrator flowsheet. Saved about 2 hours of manual checking. Won't replace running the sim, but good as a second pair of eyes.",
+    "tags": ["simulation", "hysys", "mining"]
+  },
+  {
+    "id": 2,
+    "author": "Graduate Engineer, Woodside (Karratha)",
+    "role": "Graduate Process Engineer",
+    "date": "2026-03-25",
+    "tool": "GPT-5.4 for HAZOP prep",
+    "sector": "Oil & Gas Refining",
+    "verdict": "mixed",
+    "report": "Used GPT-5.4 to draft HAZOP guidewords for a new LNG train modification. It generated 80% of the scenarios correctly but missed two critical failure modes related to cryogenic embrittlement. Senior engineer caught them. Good for first-pass brainstorming, not for final safety assessment.",
+    "tags": ["safety", "hazop", "lng"]
+  },
+  {
+    "id": 3,
+    "author": "Lab Manager, CSL (Broadmeadows)",
+    "role": "QC Laboratory Manager",
+    "date": "2026-03-22",
+    "tool": "Python + scikit-learn for batch prediction",
+    "sector": "Pharmaceutical Manufacturing",
+    "verdict": "useful",
+    "report": "Built a simple ML model predicting batch yield from 12 process parameters. 89% accuracy on validation set. Management is impressed but regulatory team wants to understand how to validate it under GMP. The tech works, the compliance pathway is the bottleneck.",
+    "tags": ["pharma", "ml", "quality"]
+  },
+  {
+    "id": 4,
+    "author": "Water Treatment Engineer, SA Water",
+    "role": "Process Engineer",
+    "date": "2026-03-20",
+    "tool": "AVEVA PI + anomaly detection",
+    "sector": "Water & Wastewater Treatment",
+    "verdict": "useful",
+    "report": "Deployed a basic anomaly detection model on our membrane filtration data. Caught a fouling event 6 hours before the pressure differential alarmed. Small win but proved the concept to the ops team. Now pushing for a proper digital twin pilot.",
+    "tags": ["water", "anomaly-detection", "digital-twin"]
+  },
+  {
+    "id": 5,
+    "author": "ChemE Student, University of Melbourne",
+    "role": "Final Year Student",
+    "date": "2026-03-18",
+    "tool": "Claude Code for thesis simulation",
+    "sector": "Process Design & Simulation",
+    "verdict": "useful",
+    "report": "Using Claude Code to write Python scripts for my capstone project — modelling a CO2 capture process. It wrote the mass balance equations faster than I could in MATLAB. Supervisor is cautiously supportive but wants me to verify every output manually. Fair enough.",
+    "tags": ["student", "simulation", "python"]
+  },
+  {
+    "id": 6,
+    "author": "Environmental Engineer, Orica (Melbourne)",
+    "role": "Environmental Compliance Engineer",
+    "date": "2026-03-15",
+    "tool": "ChatGPT for compliance reporting",
+    "sector": "Environmental & Sustainability",
+    "verdict": "mixed",
+    "report": "Tried using ChatGPT to draft a National Pollutant Inventory (NPI) report. It understood the format but hallucinated two emission factors. If I hadn't checked, we'd have submitted incorrect data to the regulator. Useful for structure, dangerous for numbers.",
+    "tags": ["environment", "compliance", "reporting"]
+  }
+]

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
+  <title>AI Impact Radar | Chemical Engineering | The Daily AI Shift</title>
+  <meta name="description" content="Visualise AI's impact across Australian chemical engineering sub-sectors — track disruption levels and opportunity scores across process design, mining, oil and gas, pharma, water treatment, and more.">
+  <meta property="og:title" content="AI Impact Radar | Chemical Engineering | The Daily AI Shift">
+  <meta property="og:description" content="Visualise AI's impact across Australian chemical engineering sub-sectors — track disruption levels and opportunity scores in real time.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="radar.html">
+  <meta property="og:image" content="assets/og-image.svg">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#005cba',
+            'primary-dark': '#004a99',
+            surface: '#f9f9fb',
+            card: '#ffffff',
+            ink: '#2d3338',
+            muted: '#6b7280'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" integrity="sha384-vsrfeLOOY6KuIYKDlmVH5UiBmgIdB1oEf7p01YgWHuqmOHfZr374+odEv96n9tNC" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+  </style>
+</head>
+<body class="bg-surface text-ink min-h-screen">
+
+  <nav id="main-nav"></nav>
+
+  <!-- Page header -->
+  <header class="pt-24 pb-10 border-b border-gray-200">
+    <div class="max-w-5xl mx-auto px-6">
+      <p class="text-xs font-semibold uppercase tracking-widest text-primary mb-3">Data</p>
+      <h1 class="text-4xl md:text-5xl font-black tracking-tight text-ink mb-3">AI IMPACT RADAR</h1>
+      <p class="text-sm font-semibold uppercase tracking-widest text-primary mb-2">Chemical Engineering Sub-Sectors</p>
+      <p class="text-lg text-muted max-w-xl">Current view of how deeply AI has penetrated Australian chemical engineering sub-sectors — from process simulation and mining to pharmaceutical manufacturing and water treatment.</p>
+      <p class="text-sm text-muted mt-2">Last updated: <span id="radar-date" class="font-medium text-ink">—</span></p>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-6 py-12 space-y-14">
+
+    <!-- Chart -->
+    <div class="radar-chart-wrap bg-card border border-gray-200 rounded-xl p-6 max-w-xl mx-auto">
+      <canvas id="radarChart"></canvas>
+      <p class="text-xs text-muted text-center mt-3">Higher = more AI adoption. Blue = what's theoretically possible. Red = what's actually deployed.</p>
+      <p class="text-[10px] text-muted text-center mt-2 italic">Every score is backed by citable evidence. Click any sector in the Trends section to see the source data. Scores are adjusted daily based on verifiable company announcements, product launches, research publications, and industry reports.</p>
+    </div>
+
+    <!-- Legend -->
+    <section class="flex flex-wrap gap-8 justify-center">
+      <div class="legend-item flex items-start gap-3 max-w-xs cursor-pointer">
+        <span class="legend-dot w-3.5 h-3.5 rounded-full bg-primary mt-1 shrink-0"></span>
+        <div>
+          <p class="font-semibold text-sm text-ink">Theoretical AI Coverage</p>
+          <p class="text-sm text-muted mt-0.5">What AI <em>could</em> do in this industry based on current technology.</p>
+        </div>
+      </div>
+      <div class="legend-item flex items-start gap-3 max-w-xs cursor-pointer">
+        <span class="legend-dot w-3.5 h-3.5 rounded-full bg-red-400 mt-1 shrink-0"></span>
+        <div>
+          <p class="font-semibold text-sm text-ink">Observed AI Coverage</p>
+          <p class="text-sm text-muted mt-0.5">What AI is <em>actually</em> being used for in practice right now.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent changes -->
+    <section>
+      <div class="flex items-center gap-4 mb-6">
+        <p class="text-xs font-semibold uppercase tracking-widest text-muted">Recent Changes</p>
+        <div class="h-px flex-1 bg-gray-200"></div>
+      </div>
+      <div id="radar-changes">
+        <div class="loading-skeleton"></div>
+        <div class="loading-skeleton"></div>
+      </div>
+    </section>
+
+    <!-- Insights -->
+    <section>
+      <div class="flex items-center gap-4 mb-6">
+        <p class="text-xs font-semibold uppercase tracking-widest text-muted">Key Takeaways</p>
+        <div class="h-px flex-1 bg-gray-200"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="insight-cards">
+        <!-- Populated from radar-data.json -->
+      </div>
+    </section>
+
+    <!-- Evidence Base -->
+    <section id="evidence-section">
+      <div class="flex items-center gap-4 mb-6">
+        <p class="text-xs font-semibold uppercase tracking-widest text-muted">Evidence Base</p>
+        <div class="h-px flex-1 bg-gray-200"></div>
+      </div>
+      <p class="text-sm text-muted mb-6">Every score is backed by citable sources. Click a sector above to see the evidence.</p>
+      <div id="evidence-panel" class="bg-card border border-gray-200 rounded-xl p-6 hidden">
+        <div class="flex items-center justify-between mb-4">
+          <h3 id="evidence-sector-title" class="text-sm font-bold text-ink"></h3>
+          <button id="evidence-close" class="text-xs text-muted hover:text-ink transition-colors uppercase tracking-widest font-semibold">Close</button>
+        </div>
+        <div id="evidence-entries" class="space-y-4"></div>
+      </div>
+      <p id="evidence-placeholder" class="text-xs text-muted italic">No sector selected — click a card in the Trends section above.</p>
+    </section>
+
+    <!-- Knowledge Map -->
+    <section id="knowledge-map-section">
+      <div class="flex items-center gap-4 mb-6">
+        <p class="text-xs font-semibold uppercase tracking-widest text-muted">Knowledge Map</p>
+        <div class="h-px flex-1 bg-gray-200"></div>
+      </div>
+      <p class="text-sm text-muted mb-6">Entity relationship network — circle size reflects fitness score, line thickness reflects connection strength. Hover an entity to see details.</p>
+      <div class="bg-card border border-gray-200 rounded-xl p-6 overflow-hidden">
+        <div id="knowledge-map-tooltip" style="position:fixed;pointer-events:none;display:none;background:#2d3338;color:#fff;font-size:11px;font-family:Inter,sans-serif;padding:6px 10px;border-radius:6px;z-index:100;line-height:1.5;"></div>
+        <svg id="knowledge-map-svg" width="100%" viewBox="0 0 700 420" style="display:block;max-height:420px;" aria-label="Entity knowledge map"></svg>
+        <div class="flex flex-wrap gap-4 mt-4 text-xs text-muted justify-center">
+          <span class="flex items-center gap-1.5"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#005cba;"></span> company</span>
+          <span class="flex items-center gap-1.5"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#7c3aed;"></span> model</span>
+          <span class="flex items-center gap-1.5"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#059669;"></span> concept</span>
+          <span class="flex items-center gap-1.5"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#d97706;"></span> tool</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-gray-200 py-8">
+    <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-muted">
+      <span>&copy; 2026 The Daily AI Shift. Built with Claude Code.</span>
+      <div class="flex items-center gap-4"><a href="feed.xml" class="text-xs text-muted hover:text-primary transition-colors font-medium" title="RSS Feed">RSS</a><span class="font-semibold uppercase tracking-widest text-ink">IMPACT</span></div>
+    </div>
+  </footer>
+
+  <script src="assets/js/utils.js"></script>
+  <script src="assets/js/radar.js"></script>
+  <script>
+  (function renderKnowledgeMap() {
+    fetch('assets/data/knowledge-graph.json')
+      .then(function(r) { return r.json(); })
+      .then(function(graph) {
+        var entities = graph.entities || {};
+        var edges = graph.edges || [];
+        var halfLife = (graph.config && graph.config.decayHalfLifeDays) || 30;
+
+        // Pick top 15 entities by fitness (after decay)
+        var msPerDay = 86400000;
+        var now = Date.now();
+        function decay(lastSeen) {
+          if (!lastSeen) return 1;
+          var days = Math.max(0, (now - new Date(lastSeen).getTime()) / msPerDay);
+          return Math.pow(0.5, days / halfLife);
+        }
+
+        var typeColor = { company: '#005cba', model: '#7c3aed', concept: '#059669', tool: '#d97706' };
+
+        var ranked = Object.entries(entities)
+          .map(function(e) {
+            return { name: e[0], data: e[1], effectiveFitness: (e[1].fitness || 0.5) * decay(e[1].lastSeen) };
+          })
+          .sort(function(a, b) { return b.effectiveFitness - a.effectiveFitness; })
+          .slice(0, 15);
+
+        var nodeNames = new Set(ranked.map(function(n) { return n.name; }));
+
+        // Only draw edges where both endpoints are in the top-15 set
+        var visibleEdges = edges.filter(function(e) {
+          return nodeNames.has(e.source) && nodeNames.has(e.target);
+        });
+
+        // Simple force-directed layout using a few iterations of repulsion + spring
+        var W = 700, H = 420, padding = 48;
+        var nodes = ranked.map(function(n, i) {
+          var angle = (2 * Math.PI * i) / ranked.length;
+          var rx = (W / 2 - padding) * 0.85;
+          var ry = (H / 2 - padding) * 0.85;
+          return {
+            name: n.name,
+            data: n.data,
+            fitness: n.effectiveFitness,
+            x: W / 2 + rx * Math.cos(angle),
+            y: H / 2 + ry * Math.sin(angle)
+          };
+        });
+
+        var nodeIndex = {};
+        nodes.forEach(function(n) { nodeIndex[n.name] = n; });
+
+        // Run 80 iterations of basic force simulation
+        var k = Math.sqrt((W * H) / nodes.length);
+        for (var iter = 0; iter < 80; iter++) {
+          var forces = nodes.map(function() { return { fx: 0, fy: 0 }; });
+
+          // Repulsion between all pairs
+          for (var i = 0; i < nodes.length; i++) {
+            for (var j = i + 1; j < nodes.length; j++) {
+              var dx = nodes[i].x - nodes[j].x;
+              var dy = nodes[i].y - nodes[j].y;
+              var dist = Math.sqrt(dx * dx + dy * dy) || 1;
+              var rep = (k * k) / dist;
+              forces[i].fx += rep * dx / dist;
+              forces[i].fy += rep * dy / dist;
+              forces[j].fx -= rep * dx / dist;
+              forces[j].fy -= rep * dy / dist;
+            }
+          }
+
+          // Attraction along edges
+          visibleEdges.forEach(function(edge) {
+            var a = nodeIndex[edge.source];
+            var b = nodeIndex[edge.target];
+            if (!a || !b) return;
+            var ai = nodes.indexOf(a), bi = nodes.indexOf(b);
+            var dx = b.x - a.x, dy = b.y - a.y;
+            var dist = Math.sqrt(dx * dx + dy * dy) || 1;
+            var attr = (dist * dist) / k * edge.strength;
+            forces[ai].fx += attr * dx / dist;
+            forces[ai].fy += attr * dy / dist;
+            forces[bi].fx -= attr * dx / dist;
+            forces[bi].fy -= attr * dy / dist;
+          });
+
+          // Apply forces with cooling
+          var temp = Math.max(5, 40 * (1 - iter / 80));
+          nodes.forEach(function(n, idx) {
+            var mag = Math.sqrt(forces[idx].fx * forces[idx].fx + forces[idx].fy * forces[idx].fy) || 1;
+            n.x += (forces[idx].fx / mag) * Math.min(mag, temp);
+            n.y += (forces[idx].fy / mag) * Math.min(mag, temp);
+            n.x = Math.max(padding, Math.min(W - padding, n.x));
+            n.y = Math.max(padding, Math.min(H - padding, n.y));
+          });
+        }
+
+        // Build SVG
+        var svgNS = 'http://www.w3.org/2000/svg';
+        var svg = document.getElementById('knowledge-map-svg');
+        if (!svg) return;
+        svg.innerHTML = '';
+
+        // Draw edges first
+        visibleEdges.forEach(function(edge) {
+          var a = nodeIndex[edge.source];
+          var b = nodeIndex[edge.target];
+          if (!a || !b) return;
+          var line = document.createElementNS(svgNS, 'line');
+          line.setAttribute('x1', a.x);
+          line.setAttribute('y1', a.y);
+          line.setAttribute('x2', b.x);
+          line.setAttribute('y2', b.y);
+          line.setAttribute('stroke', '#e5e7eb');
+          line.setAttribute('stroke-width', Math.max(0.5, edge.strength * 3));
+          line.setAttribute('stroke-opacity', '0.8');
+          svg.appendChild(line);
+        });
+
+        // Draw nodes
+        var tooltip = document.getElementById('knowledge-map-tooltip');
+        nodes.forEach(function(n) {
+          var r = Math.max(7, n.fitness * 22);
+          var color = typeColor[n.data.type] || '#6b7280';
+
+          var circle = document.createElementNS(svgNS, 'circle');
+          circle.setAttribute('cx', n.x);
+          circle.setAttribute('cy', n.y);
+          circle.setAttribute('r', r);
+          circle.setAttribute('fill', color);
+          circle.setAttribute('fill-opacity', '0.85');
+          circle.setAttribute('stroke', '#fff');
+          circle.setAttribute('stroke-width', '2');
+          circle.style.cursor = 'pointer';
+
+          circle.addEventListener('mouseenter', function(evt) {
+            if (!tooltip) return;
+            var lines = [
+              '<strong>' + n.name + '</strong>',
+              'Type: ' + (n.data.type || '—'),
+              'Fitness: ' + n.fitness.toFixed(2),
+              n.data.sector ? 'Sector: ' + n.data.sector : null,
+              'Mentions: ' + (n.data.mentions ? n.data.mentions.length : 0)
+            ].filter(Boolean).join('<br>');
+            tooltip.innerHTML = lines;
+            tooltip.style.display = 'block';
+            tooltip.style.left = (evt.clientX + 12) + 'px';
+            tooltip.style.top = (evt.clientY - 10) + 'px';
+          });
+          circle.addEventListener('mousemove', function(evt) {
+            if (!tooltip) return;
+            tooltip.style.left = (evt.clientX + 12) + 'px';
+            tooltip.style.top = (evt.clientY - 10) + 'px';
+          });
+          circle.addEventListener('mouseleave', function() {
+            if (tooltip) tooltip.style.display = 'none';
+          });
+
+          svg.appendChild(circle);
+
+          // Label — only for larger nodes to avoid clutter
+          if (r >= 12) {
+            var label = document.createElementNS(svgNS, 'text');
+            label.setAttribute('x', n.x);
+            label.setAttribute('y', n.y + r + 11);
+            label.setAttribute('text-anchor', 'middle');
+            label.setAttribute('font-size', '9');
+            label.setAttribute('font-family', 'Inter, sans-serif');
+            label.setAttribute('fill', '#6b7280');
+            label.setAttribute('pointer-events', 'none');
+            label.textContent = n.name.length > 14 ? n.name.slice(0, 13) + '\u2026' : n.name;
+            svg.appendChild(label);
+          }
+        });
+      })
+      .catch(function(err) { console.error('Knowledge map error:', err); });
+  })();
+  </script>
+</body>
+</html>

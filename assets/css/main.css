@@ -1,0 +1,185 @@
+/* ============================================
+   The Daily AI Shift — Tailwind + Custom Styles
+   ============================================ */
+
+/* Loading skeleton animation */
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+.loading-skeleton {
+  background: #e5e7eb;
+  border-radius: 0.5rem;
+  height: 100px;
+  margin-bottom: 1rem;
+  animation: skeleton-pulse 1.4s ease-in-out infinite;
+}
+
+/* State classes referenced by JS */
+.empty-state,
+.error-state {
+  color: #6b7280;
+  text-align: center;
+  padding: 3rem 0;
+  font-size: 0.9rem;
+}
+
+.error-state { color: #ef4444; }
+
+.link-unavailable {
+  font-size: 0.7rem;
+  color: #ef4444;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-left: 0.4rem;
+}
+
+/* Filter pill buttons (active state toggled by JS) */
+.filter-btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #6b7280;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.filter-btn:hover {
+  border-color: #005cba;
+  color: #005cba;
+}
+
+.filter-btn.active {
+  border-color: #005cba;
+  color: #005cba;
+  background: #f0f5ff;
+}
+
+/* Chart.js container sizing */
+.radar-chart-wrap canvas {
+  max-height: 420px;
+}
+
+/* Post content typography (not easily done with Tailwind inline) */
+.post-content h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 2.5rem 0 0.8rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  color: #005cba;
+}
+
+.post-content h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 1.5rem 0 0.5rem;
+  color: #2d3338;
+}
+
+.post-content p { margin-bottom: 1rem; color: #4b5563; }
+.post-content ul, .post-content ol { margin: 0.5rem 0 1rem 1.5rem; color: #4b5563; }
+.post-content li { margin-bottom: 0.3rem; }
+.post-content a { color: #005cba; text-decoration: none; }
+.post-content a:hover { text-decoration: underline; }
+.post-content strong { color: #2d3338; }
+
+.post-content blockquote {
+  border-left: 3px solid #005cba;
+  padding: 0.6rem 1rem;
+  margin: 1rem 0;
+  background: #f0f5ff;
+  border-radius: 0 0.5rem 0.5rem 0;
+  color: #6b7280;
+}
+
+.post-content hr {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 2rem 0;
+}
+
+/* ============================================
+   Card transitions for filter animations
+   ============================================ */
+.topic-card, .job-card {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#resources-feed, #jobs-feed {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* ============================================
+   Dark mode overrides
+   ============================================ */
+.dark body {
+  background-color: #0a0a0f;
+  color: #e8e8f0;
+}
+
+.dark .loading-skeleton {
+  background: #2a2a3a;
+}
+
+.dark .empty-state,
+.dark .error-state {
+  color: #8888a0;
+}
+
+.dark .filter-btn {
+  background: #12121a;
+  border-color: #2a2a3a;
+  color: #8888a0;
+}
+
+.dark .filter-btn:hover {
+  border-color: #005cba;
+  color: #005cba;
+}
+
+.dark .filter-btn.active {
+  border-color: #005cba;
+  color: #005cba;
+  background: #0d1a2e;
+}
+
+.dark .post-content h2 {
+  border-bottom-color: #2a2a3a;
+  color: #4d9fff;
+}
+
+.dark .post-content h3 { color: #e8e8f0; }
+.dark .post-content p { color: #8888a0; }
+.dark .post-content ul,
+.dark .post-content ol { color: #8888a0; }
+.dark .post-content strong { color: #e8e8f0; }
+.dark .post-content a { color: #4d9fff; }
+
+.dark .post-content blockquote {
+  background: #0d1a2e;
+  border-left-color: #005cba;
+  color: #8888a0;
+}
+
+.dark .post-content hr { border-top-color: #2a2a3a; }
+
+.dark #main-nav {
+  background: rgba(10, 10, 15, 0.85) !important;
+  border-bottom-color: #2a2a3a !important;
+}
+
+.dark .nav-links-mobile {
+  background: #0a0a0f;
+  border-top-color: #2a2a3a;
+}

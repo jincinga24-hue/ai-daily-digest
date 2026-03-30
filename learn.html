@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
+  <title>Learn & Adapt | Chemical Engineering x AI | The Daily AI Shift</title>
+  <meta name="description" content="Curated articles, videos, and resources to help Australian chemical engineering students and professionals learn AI skills — covering process simulation, digital twins, lab automation, and ChemE-specific tools.">
+  <meta property="og:title" content="Learn & Adapt | Chemical Engineering x AI | The Daily AI Shift">
+  <meta property="og:description" content="Curated AI resources for Australian chemical engineers and ChemE students — stay ahead of AI in process design, mining, pharma, and more.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#005cba',
+            'primary-dark': '#004a99',
+            surface: '#f9f9fb',
+            card: '#ffffff',
+            ink: '#2d3338',
+            muted: '#6b7280'
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>body { font-family: 'Inter', system-ui, sans-serif; }</style>
+</head>
+<body class="bg-surface text-ink min-h-screen">
+  <nav id="main-nav"></nav>
+
+  <header class="pt-24 pb-8 border-b border-gray-200">
+    <div class="max-w-5xl mx-auto px-6">
+      <p class="text-xs font-semibold uppercase tracking-widest text-primary mb-3">Curated Resources</p>
+      <h1 class="text-4xl md:text-5xl font-black tracking-tight text-ink mb-3">LEARN & ADAPT</h1>
+      <p class="text-sm font-semibold uppercase tracking-widest text-primary mb-2">Chemical Engineering x AI</p>
+      <p class="text-lg text-muted max-w-lg">Articles, YouTube videos, GitHub repos, and podcasts — curated for Australian chemical engineering students and professionals navigating AI in process design, mining, pharma, and beyond.</p>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-6 py-10">
+    <!-- Filter pills -->
+    <div class="flex flex-wrap gap-2 mb-8">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="xpost">X Posts</button>
+      <button class="filter-btn" data-filter="youtube">YouTube</button>
+      <button class="filter-btn" data-filter="github">GitHub</button>
+      <button class="filter-btn" data-filter="article">Articles</button>
+      <button class="filter-btn" data-filter="podcast">Podcasts</button>
+    </div>
+
+    <!-- Topic cards grid -->
+    <div id="resources-feed" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="loading-skeleton"></div>
+      <div class="loading-skeleton"></div>
+      <div class="loading-skeleton"></div>
+    </div>
+
+    <!-- Expanded detail panel (shows when a card is clicked) -->
+    <div id="detail-panel" class="hidden mt-6 border border-gray-200 rounded-lg bg-card p-6">
+      <div class="flex items-start justify-between mb-4">
+        <div>
+          <p id="detail-date" class="text-xs font-semibold uppercase tracking-widest text-primary mb-1"></p>
+          <h3 id="detail-topic" class="text-xl font-bold text-ink"></h3>
+          <p id="detail-context" class="text-sm text-muted mt-1"></p>
+        </div>
+        <button id="detail-close" class="text-muted hover:text-ink transition-colors">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="h-px bg-gray-100 mb-4"></div>
+      <div id="detail-resources" class="space-y-3">
+        <!-- Resources rendered here -->
+      </div>
+    </div>
+  </main>
+
+  <footer class="border-t border-gray-200 py-8">
+    <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-muted">
+      <span>&copy; 2026 The Daily AI Shift. Built with Claude Code.</span>
+      <div class="flex items-center gap-4"><a href="feed.xml" class="text-xs text-muted hover:text-primary transition-colors font-medium" title="RSS Feed">RSS</a><span class="font-semibold uppercase tracking-widest text-ink">IMPACT</span></div>
+    </div>
+  </footer>
+
+  <script src="assets/js/utils.js"></script>
+  <script src="assets/js/learn.js"></script>
+</body>
+</html>
