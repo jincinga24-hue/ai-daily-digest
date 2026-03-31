@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-30",
+  "lastUpdated": "2026-03-31",
   "industries": [
     "Process Design & Simulation",
     "Mining & Minerals Processing",
@@ -15,8 +15,26 @@
     "Supply Chain & Logistics"
   ],
   "theoretical": [0.88, 0.80, 0.78, 0.72, 0.85, 0.68, 0.70, 0.75, 0.82, 0.76, 0.74, 0.65],
-  "observed":    [0.52, 0.55, 0.45, 0.38, 0.48, 0.30, 0.32, 0.35, 0.50, 0.40, 0.42, 0.28],
+  "observed":    [0.52, 0.55, 0.45, 0.38, 0.49, 0.30, 0.32, 0.36, 0.50, 0.40, 0.43, 0.28],
   "changes": [
+    {
+      "industry": "Pharmaceutical Manufacturing",
+      "direction": "up",
+      "reason": "Mantis Biotech launches computational digital twin platform for human patients — enabling bioprocess and formulation engineers to predict patient-level drug responses and reduce physical trial phases",
+      "date": "2026-03-31"
+    },
+    {
+      "industry": "Energy & Renewables",
+      "direction": "up",
+      "reason": "AI company power deal with Tasmanian state generator highlights growing AI infrastructure demand on the Australian grid — accelerating AI-driven demand response and grid management deployments",
+      "date": "2026-03-31"
+    },
+    {
+      "industry": "Safety & Risk Engineering",
+      "direction": "up",
+      "reason": "Qodo raises $70M for AI code verification — growing recognition that safety-critical control system code (PLC, SIS, SCADA) requires formal AI output verification aligned with IEC 61511 V&V requirements",
+      "date": "2026-03-31"
+    },
     {
       "industry": "Process Design & Simulation",
       "direction": "up",
@@ -27,24 +45,6 @@
       "industry": "Mining & Minerals Processing",
       "direction": "up",
       "reason": "BHP and Rio Tinto expand AI-driven predictive maintenance and ore-grade prediction at Pilbara and Hunter Valley operations",
-      "date": "2026-03-30"
-    },
-    {
-      "industry": "Pharmaceutical Manufacturing",
-      "direction": "up",
-      "reason": "CSL adopts AI-driven bioprocess optimisation at Melbourne and Broadmeadows facilities, cutting batch cycle times",
-      "date": "2026-03-30"
-    },
-    {
-      "industry": "Safety & Risk Engineering",
-      "direction": "up",
-      "reason": "Woodside deploys AI-assisted HAZOP analysis at Karratha LNG — reducing manual review time while flagging novel failure modes",
-      "date": "2026-03-30"
-    },
-    {
-      "industry": "Quality Control & Analytics",
-      "direction": "up",
-      "reason": "Orica integrates AI-powered real-time NIR spectroscopy for explosives QC, replacing manual lab sampling at multiple sites",
       "date": "2026-03-30"
     }
   ],

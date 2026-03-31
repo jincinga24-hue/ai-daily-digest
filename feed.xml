@@ -5,8 +5,22 @@
     <link>https://thedailyaishift.com</link>
     <description>Daily AI intelligence for Australian chemical engineers</description>
     <language>en-AU</language>
-    <lastBuildDate>Sun, 30 Mar 2026 00:00:00 +1100</lastBuildDate>
+    <lastBuildDate>Tue, 31 Mar 2026 00:00:00 +1100</lastBuildDate>
     <atom:link href="https://thedailyaishift.com/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>AI Job Wipeout Fears, Digital Twins in Pharma, Tasmania Power Deals, and the Trust Gap in Safety-Critical Systems</title>
+      <link>https://thedailyaishift.com/posts/2026-03-31-ai-daily-digest.html</link>
+      <guid>https://thedailyaishift.com/posts/2026-03-31-ai-daily-digest.html</guid>
+      <pubDate>Tue, 31 Mar 2026 00:00:00 +1100</pubDate>
+      <description>ABC News asks if AI will wipe out Australian jobs. Mantis Biotech builds digital twins of humans for drug development. A Tasmanian AI power deal raises industrial energy concerns. Qodo raises $70M for AI code verification — and why safety engineers can't trust AI blindly.</description>
+      <category>careers</category>
+      <category>pharma</category>
+      <category>energy</category>
+      <category>safety</category>
+      <category>australia</category>
+      <category>cheme</category>
+    </item>
 
     <item>
       <title>AI in Australian Chemical Engineering: Process Simulation Upgrades, AI Job Cuts, and ChemE Careers at an Inflection Point</title>

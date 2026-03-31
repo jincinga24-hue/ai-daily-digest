@@ -1,5 +1,68 @@
 [
   {
+    "date": "2026-03-31",
+    "topic": "AI Job Displacement in Australian Engineering",
+    "relatedNews": "ABC News investigation asks whether AI will cause a job wipeout as big tech slashes roles while reporting record profits",
+    "resources": [
+      {
+        "type": "article",
+        "title": "ABC News: Is AI going to cause a job wipeout?",
+        "url": "https://www.abc.net.au/news/2026-03-31/is-ai-going-to-cause-a-job-wipeout/105900",
+        "author": "ABC News Australia",
+        "description": "ABC News investigation into AI-driven job losses across Australian industries — covering big tech, financial services, and the outlook for engineering roles"
+      },
+      {
+        "type": "article",
+        "title": "Engineers Australia — AI and the Future of Engineering Work",
+        "url": "https://www.engineersaustralia.org.au/resource-hub",
+        "author": "Engineers Australia",
+        "description": "Engineers Australia resources on AI adoption, workforce transition, and the skills chemical and process engineers need to remain competitive"
+      }
+    ]
+  },
+  {
+    "date": "2026-03-31",
+    "topic": "Digital Twins in Pharmaceutical Manufacturing",
+    "relatedNews": "Mantis Biotech launches a platform for building computational digital twins of human patients for drug development and personalised medicine",
+    "resources": [
+      {
+        "type": "article",
+        "title": "TechCrunch: Mantis Biotech is building digital twins of humans for drug development",
+        "url": "https://techcrunch.com/2026/03/31/mantis-biotech-digital-twins-humans-drug-development/",
+        "author": "TechCrunch",
+        "description": "Mantis Biotech's computational digital twin platform models individual patient biology to accelerate pharmaceutical development and reduce clinical trial burden"
+      },
+      {
+        "type": "article",
+        "title": "FDA Guidance on Model-Informed Drug Development (MIDD)",
+        "url": "https://www.fda.gov/drugs/development-approval-process-drugs/model-informed-drug-development",
+        "author": "US FDA",
+        "description": "FDA guidance on using computational modelling and simulation — including digital twins — in pharmaceutical development and regulatory submissions"
+      }
+    ]
+  },
+  {
+    "date": "2026-03-31",
+    "topic": "AI Code Verification for Safety-Critical Systems",
+    "relatedNews": "Qodo raises $70M to verify AI-generated code correctness — directly relevant to process control, SIS, and SCADA systems in chemical plants",
+    "resources": [
+      {
+        "type": "article",
+        "title": "TechCrunch: Qodo raises $70M for AI code verification",
+        "url": "https://techcrunch.com/2026/03/31/qodo-raises-70m-ai-code-verification/",
+        "author": "TechCrunch",
+        "description": "Qodo's platform verifies that AI-generated code does what it claims — a critical capability for process control engineers using AI-assisted development tools"
+      },
+      {
+        "type": "article",
+        "title": "IEC 61511 Part 1 — Functional Safety for Process Industry SIS",
+        "url": "https://www.iec.ch/safety/funcSafety/",
+        "author": "IEC",
+        "description": "The international standard governing safety instrumented systems in the process industry — including software V&V requirements that apply to AI-generated control logic"
+      }
+    ]
+  },
+  {
     "date": "2026-03-30",
     "topic": "IChemE — AI in Chemical Engineering",
     "relatedNews": "The Institution of Chemical Engineers publishes guidance on AI adoption for process engineers and plant operators",

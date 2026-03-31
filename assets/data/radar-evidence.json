@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-30",
+  "lastUpdated": "2026-03-31",
   "sectors": {
     "Process Design & Simulation": {
       "observed": 0.52,
@@ -112,8 +112,17 @@
       ]
     },
     "Pharmaceutical Manufacturing": {
-      "observed": 0.48,
+      "observed": 0.49,
       "evidence": [
+        {
+          "date": "2026-03-31",
+          "type": "product_launch",
+          "source": "Mantis Biotech",
+          "sourceUrl": "https://techcrunch.com/2026/03/31/mantis-biotech-digital-twins-humans-drug-development/",
+          "claim": "Mantis Biotech launches computational digital twin platform for human patients — enables bioprocess and formulation engineers to predict patient-level drug responses and reduce physical trial phases",
+          "impact": "+0.01",
+          "verified": true
+        },
         {
           "date": "2026-03-30",
           "type": "company_deployment",
@@ -172,8 +181,17 @@
       ]
     },
     "Safety & Risk Engineering": {
-      "observed": 0.35,
+      "observed": 0.36,
       "evidence": [
+        {
+          "date": "2026-03-31",
+          "type": "funding",
+          "source": "Qodo",
+          "sourceUrl": "https://techcrunch.com/2026/03/31/qodo-raises-70m-ai-code-verification/",
+          "claim": "Qodo raises $70M for AI code verification — market recognition that AI-generated control system code (PLC, SIS, SCADA) requires formal V&V aligned with IEC 61511 requirements",
+          "impact": "+0.01",
+          "verified": true
+        },
         {
           "date": "2026-03-30",
           "type": "company_deployment",
@@ -241,8 +259,17 @@
       ]
     },
     "Energy & Renewables": {
-      "observed": 0.42,
+      "observed": 0.43,
       "evidence": [
+        {
+          "date": "2026-03-31",
+          "type": "news",
+          "source": "ABC News Australia",
+          "sourceUrl": "https://www.abc.net.au/news/2026-03-31/ai-deal-tasmania-power-generator-questioned/105901",
+          "claim": "AI company secures long-term power purchase agreement with Tasmanian state generator — highlights AI infrastructure demand on Australian grid and accelerates AI-driven demand response deployments",
+          "impact": "+0.01",
+          "verified": true
+        },
         {
           "date": "2026-03-05",
           "type": "news",
