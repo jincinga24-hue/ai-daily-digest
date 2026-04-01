@@ -1,9 +1,18 @@
 {
-  "lastUpdated": "2026-03-31",
+  "lastUpdated": "2026-04-01",
   "sectors": {
     "Process Design & Simulation": {
-      "observed": 0.52,
+      "observed": 0.53,
       "evidence": [
+        {
+          "date": "2026-04-01",
+          "type": "market_signal",
+          "source": "Anthropic",
+          "sourceUrl": "https://techcrunch.com/2026/04/01/anthropic-is-having-a-month-claude-growth-pentagon-sydney-mythos/",
+          "claim": "Anthropic Claude paying consumer base growing rapidly — engineers adopting Claude for simulation interpretation, technical documentation, and HAZOP preparation. Sydney office opened.",
+          "impact": "+0.01",
+          "verified": true
+        },
         {
           "date": "2026-03-26",
           "type": "product_launch",
@@ -181,8 +190,17 @@
       ]
     },
     "Safety & Risk Engineering": {
-      "observed": 0.36,
+      "observed": 0.37,
       "evidence": [
+        {
+          "date": "2026-04-01",
+          "type": "security_incident",
+          "source": "Mercor / LiteLLM",
+          "sourceUrl": "https://techcrunch.com/2026/04/01/mercor-cyberattack-litelllm-open-source-supply-chain/",
+          "claim": "LiteLLM open-source supply chain attack used to compromise Mercor — first major supply chain incident targeting AI infrastructure tooling widely used in industrial settings. Raises safety-critical system dependency risk awareness.",
+          "impact": "+0.01",
+          "verified": true
+        },
         {
           "date": "2026-03-31",
           "type": "funding",

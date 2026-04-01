@@ -1,5 +1,61 @@
 [
   {
+    "date": "2026-04-01",
+    "topic": "OpenAI $122B Raise and AI Infrastructure Investment",
+    "relatedNews": "OpenAI raises $3B from retail investors as part of a $122B fundraising round — first retail access to OpenAI equity and a clear IPO signal",
+    "resources": [
+      {
+        "type": "article",
+        "title": "TechCrunch: OpenAI raises $3B from retail investors in $122B fundraise",
+        "url": "https://techcrunch.com/2026/04/01/openai-raises-3b-retail-investors-122b-fundraise/",
+        "author": "TechCrunch",
+        "description": "OpenAI opens equity access to retail investors for the first time, closing a $3B tranche of its ongoing $122B raise — widely read as a pre-IPO liquidity mechanism"
+      },
+      {
+        "type": "article",
+        "title": "Anthropic: Claude adoption surge, Pentagon win, Sydney office, and Mythos leak",
+        "url": "https://techcrunch.com/2026/04/01/anthropic-is-having-a-month-claude-growth-pentagon-sydney-mythos/",
+        "author": "TechCrunch",
+        "description": "Anthropic's extraordinary month: paying consumer growth, Pentagon injunction win, Sydney office opened, and 'Mythos' next-gen model leaked internally"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-01",
+    "topic": "AI Supply Chain Security — LiteLLM Attack",
+    "relatedNews": "Mercor cyberattack traced to a supply chain compromise of LiteLLM open-source library — first major supply chain attack on AI infrastructure tooling",
+    "resources": [
+      {
+        "type": "article",
+        "title": "TechCrunch: Mercor cyberattack via LiteLLM open-source supply chain compromise",
+        "url": "https://techcrunch.com/2026/04/01/mercor-cyberattack-litelllm-open-source-supply-chain/",
+        "author": "TechCrunch",
+        "description": "Attackers injected malicious code into a LiteLLM transitive dependency, enabling credential exfiltration from any application using the compromised version — a direct warning for industrial AI toolchain operators"
+      },
+      {
+        "type": "reference",
+        "title": "NIST SP 800-161: Cybersecurity Supply Chain Risk Management",
+        "url": "https://csrc.nist.gov/publications/detail/sp/800-161/rev-1/final",
+        "author": "NIST",
+        "description": "NIST guidance on managing cybersecurity risks across software and technology supply chains — directly applicable to open-source AI dependency management in industrial and safety-critical contexts"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-01",
+    "topic": "Enterprise AI in Workplace Tools — Slack AI Makeover",
+    "relatedNews": "Salesforce announces 30 new AI features for Slack, including autonomous agents and AI-generated shift handover summaries for enterprise teams",
+    "resources": [
+      {
+        "type": "article",
+        "title": "TechCrunch: Salesforce announces 30 new AI features for Slack",
+        "url": "https://techcrunch.com/2026/04/01/salesforce-announces-30-new-ai-features-slack/",
+        "author": "TechCrunch",
+        "description": "Salesforce's AI makeover of Slack introduces autonomous Agentforce agents, AI-generated meeting and shift summaries, and automated action item assignment for enterprise teams"
+      }
+    ]
+  },
+  {
     "date": "2026-03-31",
     "topic": "AI Job Displacement in Australian Engineering",
     "relatedNews": "ABC News investigation asks whether AI will cause a job wipeout as big tech slashes roles while reporting record profits",

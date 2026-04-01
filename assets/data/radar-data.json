@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-31",
+  "lastUpdated": "2026-04-01",
   "industries": [
     "Process Design & Simulation",
     "Mining & Minerals Processing",
@@ -15,8 +15,20 @@
     "Supply Chain & Logistics"
   ],
   "theoretical": [0.88, 0.80, 0.78, 0.72, 0.85, 0.68, 0.70, 0.75, 0.82, 0.76, 0.74, 0.65],
-  "observed":    [0.52, 0.55, 0.45, 0.38, 0.49, 0.30, 0.32, 0.36, 0.50, 0.40, 0.43, 0.28],
+  "observed":    [0.53, 0.55, 0.45, 0.38, 0.49, 0.30, 0.32, 0.37, 0.50, 0.40, 0.43, 0.28],
   "changes": [
+    {
+      "industry": "Process Design & Simulation",
+      "direction": "up",
+      "reason": "Anthropic Claude consumer adoption skyrocketing — more process engineers using Claude for simulation interpretation, HAZOP prep, and technical documentation. Sydney office signals long-term Australian market investment.",
+      "date": "2026-04-01"
+    },
+    {
+      "industry": "Safety & Risk Engineering",
+      "direction": "up",
+      "reason": "LiteLLM supply chain attack on Mercor highlights critical need for dependency security auditing in AI toolchains used near safety-critical systems — raises awareness of open-source AI infrastructure risk.",
+      "date": "2026-04-01"
+    },
     {
       "industry": "Pharmaceutical Manufacturing",
       "direction": "up",

@@ -1,5 +1,12 @@
 [
   {
+    "slug": "2026-04-01-ai-daily-digest",
+    "title": "OpenAI Opens to Retail Investors, Anthropic Is Having a Month, Slack Goes AI-Heavy, and a Supply Chain Attack Hits AI Infrastructure",
+    "date": "2026-04-01",
+    "excerpt": "OpenAI raises $3B from retail investors in a $122B raise — an IPO signal. Anthropic wins the Pentagon injunction, opens Sydney, and leaks 'Mythos'. Salesforce adds 30 AI features to Slack. LiteLLM supply chain attack hits Mercor. Runway launches $10M for AI startups. What all five mean for chemical engineers.",
+    "tags": ["investment", "anthropic", "enterprise", "security", "australia", "cheme"]
+  },
+  {
     "slug": "2026-03-31-ai-daily-digest",
     "title": "AI Job Wipeout Fears, Digital Twins in Pharma, Tasmania Power Deals, and the Trust Gap in Safety-Critical Systems",
     "date": "2026-03-31",

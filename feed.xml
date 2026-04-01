@@ -5,8 +5,22 @@
     <link>https://thedailyaishift.com</link>
     <description>Daily AI intelligence for Australian chemical engineers</description>
     <language>en-AU</language>
-    <lastBuildDate>Tue, 31 Mar 2026 00:00:00 +1100</lastBuildDate>
+    <lastBuildDate>Wed, 01 Apr 2026 00:00:00 +1100</lastBuildDate>
     <atom:link href="https://thedailyaishift.com/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>OpenAI Opens to Retail Investors, Anthropic Is Having a Month, Slack Goes AI-Heavy, and a Supply Chain Attack Hits AI Infrastructure</title>
+      <link>https://thedailyaishift.com/posts/2026-04-01-ai-daily-digest.html</link>
+      <guid>https://thedailyaishift.com/posts/2026-04-01-ai-daily-digest.html</guid>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 +1100</pubDate>
+      <description>OpenAI raises $3B from retail investors in a $122B raise — an IPO signal. Anthropic wins the Pentagon injunction, opens Sydney, and leaks 'Mythos'. Salesforce adds 30 AI features to Slack. LiteLLM supply chain attack hits Mercor. Runway launches $10M for AI startups. What all five mean for chemical engineers.</description>
+      <category>investment</category>
+      <category>anthropic</category>
+      <category>enterprise</category>
+      <category>security</category>
+      <category>australia</category>
+      <category>cheme</category>
+    </item>
 
     <item>
       <title>AI Job Wipeout Fears, Digital Twins in Pharma, Tasmania Power Deals, and the Trust Gap in Safety-Critical Systems</title>
