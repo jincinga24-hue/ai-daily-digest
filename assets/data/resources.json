@@ -1,5 +1,47 @@
 [
   {
+    "date": "2026-04-02",
+    "topic": "Open-Source AI Dependency Risk — DMCA and Supply Chain",
+    "relatedNews": "Anthropic's mass DMCA takedowns targeting the Mythos leak accidentally removed thousands of legitimate open-source GitHub repositories, breaking CI/CD pipelines overnight",
+    "resources": [
+      {
+        "type": "article",
+        "title": "GitHub Blog: Anthropic DMCA takedowns and open-source impact",
+        "url": "https://github.blog/2026-04-02-anthropic-dmca-takedowns-open-source/",
+        "author": "GitHub",
+        "description": "GitHub's account of the Anthropic DMCA campaign, the scope of collateral takedowns, and the restoration process for legitimate open-source repositories"
+      },
+      {
+        "type": "reference",
+        "title": "Python Packaging Guide: Dependency Pinning and Private Registries",
+        "url": "https://packaging.python.org/en/latest/guides/hosting-your-own-index/",
+        "author": "PyPA",
+        "description": "Official Python Packaging Authority guide to hosting a private package index — the correct mitigation for open-source dependency availability risk in industrial AI tooling environments"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-02",
+    "topic": "AI-Designed Chips and Data Centre Energy Footprint",
+    "relatedNews": "Cognichip raises $60M for AI that designs semiconductor chips. Meta's AI data centre natural gas consumption reaches South Dakota scale.",
+    "resources": [
+      {
+        "type": "article",
+        "title": "TechCrunch: Cognichip raises $60M for AI-designed chips",
+        "url": "https://techcrunch.com/2026/04/02/cognichip-raises-60m-ai-designed-chips/",
+        "author": "TechCrunch",
+        "description": "Cognichip's $60M Series A for AI-driven semiconductor design — reinforcement learning and generative design achieving 15-25% power efficiency gains for AI inference workloads"
+      },
+      {
+        "type": "article",
+        "title": "The Guardian: Meta AI data centres natural gas consumption",
+        "url": "https://www.theguardian.com/technology/2026/apr/02/meta-natural-gas-ai-data-centres-south-dakota/",
+        "author": "The Guardian",
+        "description": "Analysis of Meta's energy filings showing AI data centre natural gas consumption equivalent to powering South Dakota — direct implications for industrial energy pricing and Australian grid capacity planning"
+      }
+    ]
+  },
+  {
     "date": "2026-04-01",
     "topic": "OpenAI $122B Raise and AI Infrastructure Investment",
     "relatedNews": "OpenAI raises $3B from retail investors as part of a $122B fundraising round — first retail access to OpenAI equity and a clear IPO signal",

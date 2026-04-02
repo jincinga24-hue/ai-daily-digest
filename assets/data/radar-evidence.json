@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-01",
+  "lastUpdated": "2026-04-02",
   "sectors": {
     "Process Design & Simulation": {
       "observed": 0.53,
@@ -277,8 +277,17 @@
       ]
     },
     "Energy & Renewables": {
-      "observed": 0.43,
+      "observed": 0.44,
       "evidence": [
+        {
+          "date": "2026-04-02",
+          "type": "market_signal",
+          "source": "The Guardian",
+          "sourceUrl": "https://www.theguardian.com/technology/2026/apr/02/meta-natural-gas-ai-data-centres-south-dakota/",
+          "claim": "Meta's AI data centre natural gas consumption reaches South Dakota-scale — AI infrastructure is now a major industrial energy demand class directly competing with process operators for grid capacity and gas supply in Australia and globally.",
+          "impact": "+0.01",
+          "verified": true
+        },
         {
           "date": "2026-03-31",
           "type": "news",

@@ -1,5 +1,12 @@
 [
   {
+    "slug": "2026-04-02-ai-daily-digest",
+    "title": "Anthropic's DMCA Overreach Kills Open-Source Repos, Cognichip Raises $60M for AI-Designed Chips, and Meta's AI Energy Appetite Could Power South Dakota",
+    "date": "2026-04-02",
+    "excerpt": "Anthropic's mass DMCA takedowns targeting the Mythos leak accidentally kill thousands of legitimate open-source repos. Cognichip raises $60M for AI that designs chips. Meta's AI data centre natural gas consumption rivals a US state. What all three mean for chemical engineers.",
+    "tags": ["anthropic", "hardware", "energy", "open-source", "australia", "cheme"]
+  },
+  {
     "slug": "2026-04-01-ai-daily-digest",
     "title": "OpenAI Opens to Retail Investors, Anthropic Is Having a Month, Slack Goes AI-Heavy, and a Supply Chain Attack Hits AI Infrastructure",
     "date": "2026-04-01",
