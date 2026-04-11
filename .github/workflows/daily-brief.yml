@@ -32,6 +32,6 @@ jobs:
       - name: Trigger Daily Brief agent
         run: node scripts/run-brief.mjs
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          CLAUDE_AGENT_ID: ${{ secrets.CLAUDE_AGENT_ID }}
-          CLAUDE_ENVIRONMENT_ID: ${{ secrets.CLAUDE_ENVIRONMENT_ID }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPICAPIKEY }}
+          CLAUDE_AGENT_ID: ${{ secrets.CLAUDEAGENTID }}
+          CLAUDE_ENVIRONMENT_ID: ${{ secrets.CLAUDEENVIRONMENTID }}
