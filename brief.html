@@ -1,0 +1,225 @@
+---
+layout: null
+title: Daily Brief
+permalink: /brief/
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Daily Brief</title>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<style>
+  :root{
+    --bg:#0b0d12; --panel:#141821; --panel2:#1b2030; --ink:#e8ecf2; --muted:#9aa3b2;
+    --ai:#7dd3fc; --mkt:#34d399; --term:#fbbf24; --you:#a78bfa;
+    --line:#2a3142;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 ui-sans-serif,system-ui,-apple-system,"PingFang SC",sans-serif}
+  a{color:var(--ai);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  header{padding:40px 24px 20px;border-bottom:1px solid var(--line);background:radial-gradient(1200px 300px at 50% 0%,#1e293b 0%,transparent 60%)}
+  header .wrap{max-width:760px;margin:0 auto}
+  header h1{margin:0 0 4px;font-size:30px;letter-spacing:-.02em}
+  header .date{color:var(--muted);font-size:14px}
+  header .nav{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
+  header .nav button{background:var(--panel);color:var(--ink);border:1px solid var(--line);padding:6px 12px;border-radius:999px;font-size:12px;cursor:pointer}
+  header .nav button:hover{border-color:var(--ai)}
+
+  main{max-width:760px;margin:0 auto;padding:32px 24px 80px}
+  .section{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px 28px;margin-bottom:20px}
+  .section .badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:6px;margin-bottom:10px}
+  .section h2{margin:0 0 16px;font-size:20px}
+  .section.ai .badge{background:var(--ai);color:#0b1220}
+  .section.mkt .badge{background:var(--mkt);color:#0b1220}
+  .section.term .badge{background:var(--term);color:#0b1220}
+  .section.you .badge{background:var(--you);color:#0b1220}
+  .section.ai h2{color:var(--ai)}
+  .section.mkt h2{color:var(--mkt)}
+  .section.term h2{color:var(--term)}
+  .section.you h2{color:var(--you)}
+
+  .body p{margin:0 0 12px}
+  .body strong{color:#fff}
+  .body em{color:var(--muted)}
+  .body ul,.body ol{padding-left:20px;margin:6px 0 12px}
+  .body li{margin:4px 0}
+  .body code{background:#0b1220;border:1px solid var(--line);padding:1px 6px;border-radius:4px;font-size:13px}
+
+  .sources{margin-top:24px;padding:20px 24px;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+  .sources h3{margin:0 0 10px;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+  .sources ol{margin:0;padding-left:20px;font-size:13px}
+  .sources li{margin:4px 0;color:var(--muted)}
+
+  .loading,.error{text-align:center;padding:60px 20px;color:var(--muted)}
+  .error{color:#f87171}
+  .empty{text-align:center;padding:60px 20px;color:var(--muted)}
+  .empty a{color:var(--ai)}
+
+  footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>Daily Brief</h1>
+    <div class="date" id="date-display">Loading…</div>
+    <div class="nav">
+      <button onclick="loadDate(-1)">← Yesterday</button>
+      <button onclick="loadDate(0)">Today</button>
+      <button onclick="showArchive()">Archive</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="loading">Fetching today's brief…</div>
+</main>
+
+<footer>Personal daily brief · auto-generated each morning</footer>
+
+<script>
+// ---------- config ----------
+const SUPABASE_URL = 'https://oqveovumfkianekagtra.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9xdmVvdnVtZmtpYW5la2FndHJhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU5MDY4MzcsImV4cCI6MjA5MTQ4MjgzN30.vmzA7fo4VNNeIxQjVEg9r23f1nOPwIJFFCPs8e-sDQo';
+
+// ---------- data fetching ----------
+async function fetchDigest(date) {
+  const url = date
+    ? `${SUPABASE_URL}/rest/v1/daily_digests?digest_date=eq.${date}&select=*&limit=1`
+    : `${SUPABASE_URL}/rest/v1/daily_digests?select=*&order=digest_date.desc&limit=1`;
+  const res = await fetch(url, {
+    headers: { apikey: SUPABASE_ANON, Authorization: `Bearer ${SUPABASE_ANON}` }
+  });
+  if (!res.ok) throw new Error(`Supabase ${res.status}: ${await res.text()}`);
+  const rows = await res.json();
+  return rows[0] || null;
+}
+
+async function fetchAllDates() {
+  const url = `${SUPABASE_URL}/rest/v1/daily_digests?select=digest_date&order=digest_date.desc`;
+  const res = await fetch(url, {
+    headers: { apikey: SUPABASE_ANON, Authorization: `Bearer ${SUPABASE_ANON}` }
+  });
+  if (!res.ok) return [];
+  return (await res.json()).map(r => r.digest_date);
+}
+
+// ---------- rendering ----------
+function fmtDate(iso) {
+  if (!iso) return '';
+  const d = new Date(iso + 'T00:00:00');
+  return d.toLocaleDateString('en-AU', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+}
+
+function md(text) { return text ? marked.parse(text) : ''; }
+
+function render(digest) {
+  const main = document.getElementById('main');
+  const dateDisplay = document.getElementById('date-display');
+
+  if (!digest) {
+    dateDisplay.textContent = '—';
+    main.innerHTML = `<div class="empty">No brief for that day yet.<br><br><a href="/brief/">Back to latest</a></div>`;
+    return;
+  }
+
+  dateDisplay.textContent = fmtDate(digest.digest_date);
+
+  const term = digest.term_of_day || {};
+  const sources = digest.sources_used || [];
+
+  main.innerHTML = `
+    <section class="section ai">
+      <span class="badge">AI Today</span>
+      <div class="body">${md(digest.ai_section)}</div>
+    </section>
+
+    <section class="section mkt">
+      <span class="badge">Markets at a Glance</span>
+      <div class="body">${md(digest.markets_section)}</div>
+    </section>
+
+    <section class="section term">
+      <span class="badge">Term of the Day</span>
+      <h2>${term.title || ''}</h2>
+      <div class="body">${md(term.body || '')}</div>
+    </section>
+
+    <section class="section you">
+      <span class="badge">What This Means For You</span>
+      <div class="body">${md(digest.personal_takeaway)}</div>
+    </section>
+
+    ${sources.length ? `
+    <div class="sources">
+      <h3>Sources (${sources.length})</h3>
+      <ol>
+        ${sources.map(s => `<li><a href="${s.url}" target="_blank" rel="noopener">${s.title || s.url}</a></li>`).join('')}
+      </ol>
+    </div>` : ''}
+  `;
+}
+
+// ---------- navigation ----------
+async function loadDate(offset) {
+  const main = document.getElementById('main');
+  main.innerHTML = '<div class="loading">Loading…</div>';
+  try {
+    if (offset === 0) {
+      const digest = await fetchDigest(null);
+      render(digest);
+    } else {
+      const d = new Date();
+      d.setDate(d.getDate() + offset);
+      const iso = d.toISOString().slice(0, 10);
+      const digest = await fetchDigest(iso);
+      render(digest);
+    }
+  } catch (e) {
+    main.innerHTML = `<div class="error">Error: ${e.message}</div>`;
+  }
+}
+
+async function showArchive() {
+  const main = document.getElementById('main');
+  main.innerHTML = '<div class="loading">Loading archive…</div>';
+  try {
+    const dates = await fetchAllDates();
+    if (!dates.length) {
+      main.innerHTML = '<div class="empty">No briefs yet.</div>';
+      return;
+    }
+    main.innerHTML = `
+      <div class="sources">
+        <h3>All briefs (${dates.length})</h3>
+        <ol>
+          ${dates.map(d => `<li><a href="javascript:void(0)" onclick="jumpTo('${d}')">${fmtDate(d)}</a></li>`).join('')}
+        </ol>
+      </div>`;
+  } catch (e) {
+    main.innerHTML = `<div class="error">Error: ${e.message}</div>`;
+  }
+}
+
+async function jumpTo(date) {
+  const main = document.getElementById('main');
+  main.innerHTML = '<div class="loading">Loading…</div>';
+  try {
+    const digest = await fetchDigest(date);
+    render(digest);
+  } catch (e) {
+    main.innerHTML = `<div class="error">Error: ${e.message}</div>`;
+  }
+}
+
+// ---------- init ----------
+loadDate(0);
+</script>
+
+</body>
+</html>

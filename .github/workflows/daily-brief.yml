@@ -1,0 +1,37 @@
+name: Daily Brief
+
+on:
+  schedule:
+    # 7:00 AM Melbourne time (AEST, UTC+10) = 21:00 UTC previous day
+    # During AEDT (UTC+11, Oct-Apr) this effectively fires at 8:00 AM
+    # Adjust to 0 20 * * * if you want 7 AM year-round (rough approx)
+    - cron: '0 21 * * *'
+  workflow_dispatch:  # lets you trigger manually from the Actions tab
+
+jobs:
+  run-brief:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install deps
+        run: npm install rss-parser
+
+      - name: Pre-fetch news (cost saver)
+        run: node scripts/prefetch-news.mjs
+        env:
+          NODE_ENV: production
+
+      - name: Trigger Daily Brief agent
+        run: node scripts/run-brief.mjs
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CLAUDE_AGENT_ID: ${{ secrets.CLAUDE_AGENT_ID }}
+          CLAUDE_ENVIRONMENT_ID: ${{ secrets.CLAUDE_ENVIRONMENT_ID }}

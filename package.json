@@ -1,9 +1,15 @@
 {
   "name": "ai-daily-digest",
-  "version": "1.0.0",
-  "description": "The Daily AI Shift — daily AI news blog with radar chart and resource feed",
+  "version": "2.0.0",
+  "description": "Daily Brief — personal AI + finance news briefing, powered by Claude Managed Agents",
+  "type": "module",
   "scripts": {
-    "start": "npx serve . -p 3000"
+    "start": "npx serve . -p 3000",
+    "prefetch": "node scripts/prefetch-news.mjs",
+    "brief": "node scripts/prefetch-news.mjs && node scripts/run-brief.mjs"
+  },
+  "dependencies": {
+    "rss-parser": "^3.13.0"
   },
   "devDependencies": {
     "serve": "^14.0.0"
