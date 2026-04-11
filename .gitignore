@@ -6,3 +6,4 @@ secrets.*
 credentials.*
 *.pem
 *.key
+scripts/news-cache.json
