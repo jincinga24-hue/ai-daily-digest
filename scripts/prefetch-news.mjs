@@ -12,23 +12,26 @@ import { writeFileSync } from 'node:fs';
 const parser = new Parser({ timeout: 10_000 });
 
 // ---------- curated sources ----------
+// NOTE: many vendor RSS feeds (Anthropic, Meta, Reuters, RBA) moved or got
+// paywalled. We rely on aggregators (HN, Techmeme) + a few bloggers + AFR.
+// HN front page filtered by points gives us AI model launches for free.
 const AI_FEEDS = [
   { name: 'Hacker News front page',  url: 'https://hnrss.org/frontpage?points=150', category: 'ai-tech' },
+  { name: 'Hacker News — AI tag',    url: 'https://hnrss.org/newest?q=AI+OR+LLM+OR+Claude+OR+GPT+OR+Anthropic+OR+OpenAI', category: 'ai-tech' },
   { name: 'Simon Willison',          url: 'https://simonwillison.net/atom/everything/', category: 'ai-blog' },
-  { name: 'Anthropic news',          url: 'https://www.anthropic.com/news/rss.xml', category: 'ai-lab' },
+  { name: 'Techmeme',                url: 'https://www.techmeme.com/feed.xml', category: 'ai-aggregator' },
   { name: 'OpenAI blog',             url: 'https://openai.com/blog/rss.xml', category: 'ai-lab' },
   { name: 'Google DeepMind',         url: 'https://deepmind.google/blog/rss.xml', category: 'ai-lab' },
-  { name: 'Meta AI blog',            url: 'https://ai.meta.com/blog/rss/', category: 'ai-lab' },
 ];
 
 const FINANCE_FEEDS = [
   { name: 'AFR markets',             url: 'https://www.afr.com/rss/markets.xml', category: 'au-markets' },
-  { name: 'AFR companies',           url: 'https://www.afr.com/rss/companies.xml', category: 'au-companies' },
-  { name: 'RBA announcements',       url: 'https://www.rba.gov.au/rss/rss-cb.xml', category: 'au-rates' },
-  { name: 'Reuters markets',         url: 'https://www.reutersagency.com/feed/?best-topics=business-finance', category: 'global-markets' },
+  { name: 'ABC Business',            url: 'https://www.abc.net.au/news/feed/51892/rss.xml', category: 'au-markets' },
+  { name: 'MarketWatch top',         url: 'https://feeds.marketwatch.com/marketwatch/topstories/', category: 'global-markets' },
+  { name: 'CNBC top news',           url: 'https://www.cnbc.com/id/100003114/device/rss/rss.html', category: 'global-markets' },
 ];
 
-// Yahoo Finance quotes (free public API)
+// Yahoo Finance v8 chart endpoint (still works without auth as of 2026)
 const TICKERS = ['^GSPC', '^IXIC', '^DJI', '^AXJO', 'AUDUSD=X', 'NVDA', 'MSFT', 'GOOG', 'META', 'AAPL', 'TSLA'];
 
 // ---------- fetch helpers ----------
@@ -57,27 +60,40 @@ async function fetchFeed(feed) {
   }
 }
 
-async function fetchQuotes() {
+async function fetchOneQuote(symbol) {
+  // v8 chart endpoint — free, no auth, doesn't require cookies
+  const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(symbol)}?interval=1d&range=5d`;
   try {
-    const url = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${TICKERS.join(',')}`;
-    const r = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0' } });
+    const r = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36' } });
     if (!r.ok) throw new Error(`${r.status}`);
     const j = await r.json();
-    const result = (j.quoteResponse?.result || []).map(q => ({
-      symbol: q.symbol,
-      name: q.shortName,
-      price: q.regularMarketPrice,
-      change: q.regularMarketChange,
-      change_pct: q.regularMarketChangePercent,
-      prev_close: q.regularMarketPreviousClose,
-      market_state: q.marketState,
-    }));
-    console.log(`  ✓ Yahoo Finance: ${result.length} quotes`);
-    return result;
+    const m = j.chart?.result?.[0]?.meta;
+    if (!m) throw new Error('no meta');
+    const price = m.regularMarketPrice;
+    const prev = m.chartPreviousClose ?? m.previousClose;
+    const change = price - prev;
+    const change_pct = (change / prev) * 100;
+    return {
+      symbol: m.symbol,
+      name: m.longName || m.shortName || m.symbol,
+      price: Number(price?.toFixed(2)),
+      prev_close: Number(prev?.toFixed(2)),
+      change: Number(change?.toFixed(2)),
+      change_pct: Number(change_pct?.toFixed(2)),
+      currency: m.currency,
+      market_state: m.marketState,
+    };
   } catch (e) {
-    console.log(`  ✗ Yahoo Finance: ${e.message}`);
-    return [];
+    return { symbol, error: e.message };
   }
+}
+
+async function fetchQuotes() {
+  const results = await Promise.all(TICKERS.map(fetchOneQuote));
+  const ok = results.filter(r => !r.error);
+  const bad = results.filter(r => r.error);
+  console.log(`  ✓ Yahoo Finance: ${ok.length}/${TICKERS.length} quotes${bad.length ? ' (failed: ' + bad.map(b => b.symbol).join(',') + ')' : ''}`);
+  return ok;
 }
 
 // ---------- main ----------
