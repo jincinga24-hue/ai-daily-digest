@@ -69,9 +69,13 @@ ${prefetchedContext}`;
 
   console.log('→ Sending user.message event…');
   await post(`/v1/sessions/${sessionId}/events`, {
-    type: 'user.message',
-    content: [
-      { type: 'text', text: userMessageText },
+    events: [
+      {
+        type: 'user.message',
+        content: [
+          { type: 'text', text: userMessageText },
+        ],
+      },
     ],
   });
   console.log('  ✓ Message sent');
