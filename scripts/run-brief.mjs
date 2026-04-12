@@ -1,7 +1,7 @@
 // scripts/run-brief.mjs
-// Triggers the Daily Brief Managed Agent, waits for it to finish, exits.
-// Run via: node scripts/run-brief.mjs
-// Requires env: ANTHROPIC_API_KEY, CLAUDE_AGENT_ID, CLAUDE_ENVIRONMENT_ID
+// Triggers the Daily Brief Managed Agent session — fire and forget.
+// The agent runs autonomously in Anthropic's cloud, writes to Supabase on its own.
+// We just need to create the session and send the initial message.
 
 import { readFileSync, existsSync } from 'node:fs';
 
@@ -22,19 +22,19 @@ let prefetchedContext = '';
 if (existsSync('scripts/news-cache.json')) {
   const cache = JSON.parse(readFileSync('scripts/news-cache.json', 'utf8'));
   prefetchedContext = `
-=============================
-PRE-FETCHED SOURCES
-=============================
-The following articles were already fetched for you from trusted sources.
+
+PRE-FETCHED SOURCES (already fetched for you from trusted feeds)
 Use these as your primary content. Only call web_search if you need to
-verify a specific number or if a critical story is missing.
+verify a specific number or if a critical story seems missing.
 
 ${JSON.stringify(cache, null, 2)}
 `;
+  console.log(`→ Loaded news-cache.json (${cache.ai_stories?.length || 0} AI + ${cache.finance_stories?.length || 0} finance + ${cache.market_quotes?.length || 0} quotes)`);
 }
 
 const headers = {
   'x-api-key': KEY,
+  'anthropic-version': '2023-06-01',
   'anthropic-beta': BETA,
   'content-type': 'application/json',
 };
@@ -45,20 +45,14 @@ async function post(path, body) {
     headers,
     body: JSON.stringify(body),
   });
-  if (!r.ok) throw new Error(`POST ${path} failed: ${r.status} ${await r.text()}`);
-  return r.json();
+  const text = await r.text();
+  if (!r.ok) throw new Error(`POST ${path} failed: ${r.status} ${text}`);
+  return JSON.parse(text);
 }
-
-async function get(path) {
-  const r = await fetch(`${API}${path}`, { headers });
-  if (!r.ok) throw new Error(`GET ${path} failed: ${r.status} ${await r.text()}`);
-  return r.json();
-}
-
-function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
 // ---------- run ----------
 (async () => {
+  // Step 1: Create session
   console.log('→ Creating session…');
   const session = await post('/v1/sessions', {
     agent: AGENT_ID,
@@ -66,45 +60,30 @@ function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
     title: `Daily Brief ${new Date().toISOString().slice(0, 10)}`,
   });
   const sessionId = session.id;
-  console.log(`  session id: ${sessionId}`);
+  console.log(`  ✓ session id: ${sessionId}`);
 
-  const userMessageText = `Run today's daily brief. Fetch yesterday's top AI and financial news, write all four sections, and persist the digest to Supabase. Follow the system prompt exactly.
+  // Step 2: Send the initial message
+  const userMessageText = `Run today's daily brief. Fetch yesterday's top AI and financial news, write all four sections, and persist the digest to Supabase via execute_sql. Follow the system prompt exactly.
 
 ${prefetchedContext}`;
 
-  console.log('→ Sending initial user.message event…');
+  console.log('→ Sending user.message event…');
   await post(`/v1/sessions/${sessionId}/events`, {
     type: 'user.message',
     content: [
       { type: 'text', text: userMessageText },
     ],
   });
+  console.log('  ✓ Message sent');
 
-  console.log('→ Polling session status…');
-  const start = Date.now();
-  const MAX = 15 * 60 * 1000; // 15 min
-
-  const TERMINAL_OK = new Set(['completed', 'complete', 'done', 'finished', 'idle', 'stopped']);
-  const TERMINAL_BAD = new Set(['failed', 'error', 'errored', 'cancelled', 'canceled']);
-
-  while (Date.now() - start < MAX) {
-    await sleep(10_000);
-    const s = await get(`/v1/sessions/${sessionId}`);
-    const status = s.status || s.state || 'unknown';
-    console.log(`  status: ${status}`);
-
-    if (TERMINAL_OK.has(status)) {
-      console.log('✓ Session reached terminal OK state');
-      // Optional: verify the digest was actually written by checking events
-      process.exit(0);
-    }
-    if (TERMINAL_BAD.has(status)) {
-      console.error('✗ Session failed:', JSON.stringify(s, null, 2));
-      process.exit(1);
-    }
-  }
-  console.error('✗ Timed out after 15 minutes');
-  process.exit(1);
+  // Step 3: Done. The agent runs autonomously from here.
+  // It will call web_search, read/write Supabase, and finish on its own.
+  // Check results by querying daily_digests in Supabase.
+  console.log('');
+  console.log('✓ Agent triggered. It will run autonomously in the cloud.');
+  console.log('  Check results in ~5 min: SELECT * FROM daily_digests ORDER BY digest_date DESC LIMIT 1;');
+  console.log(`  Or view the session in Claude Console: ${sessionId}`);
+  process.exit(0);
 })().catch(e => {
   console.error('✗ Run failed:', e.message);
   process.exit(1);
