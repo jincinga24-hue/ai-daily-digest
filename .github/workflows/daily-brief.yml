@@ -25,6 +25,7 @@ jobs:
         run: npm install rss-parser
 
       - name: Pre-fetch news (cost saver)
+        continue-on-error: true
         run: node scripts/prefetch-news.mjs
         env:
           NODE_ENV: production

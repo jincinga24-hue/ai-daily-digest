@@ -120,4 +120,5 @@ async function fetchQuotes() {
   console.log(`  ai stories:      ${cache.ai_stories.length}`);
   console.log(`  finance stories: ${cache.finance_stories.length}`);
   console.log(`  market quotes:   ${cache.market_quotes.length}`);
+  process.exit(0);
 })();
