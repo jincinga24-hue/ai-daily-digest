@@ -96,6 +96,54 @@ async function fetchQuotes() {
   return ok;
 }
 
+// ---------- GitHub trending AI repos ----------
+async function fetchTrendingRepos() {
+  // Search for repos with AI/LLM/ML topics, created or pushed in last 3 days, sorted by stars
+  const since = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+  const queries = [
+    `ai OR llm OR "large language model" OR "machine learning" pushed:>${since} stars:>50`,
+    `agent OR rag OR embedding pushed:>${since} stars:>100`,
+  ];
+  const allRepos = [];
+  for (const q of queries) {
+    try {
+      const url = `https://api.github.com/search/repositories?q=${encodeURIComponent(q)}&sort=stars&order=desc&per_page=10`;
+      const r = await fetch(url, {
+        headers: {
+          'User-Agent': 'DailyBrief/1.0',
+          Accept: 'application/vnd.github+json',
+        },
+      });
+      if (!r.ok) { console.log(`  ✗ GitHub search: ${r.status}`); continue; }
+      const j = await r.json();
+      const repos = (j.items || []).map(repo => ({
+        name: repo.full_name,
+        url: repo.html_url,
+        description: (repo.description || '').slice(0, 200),
+        stars: repo.stargazers_count,
+        language: repo.language,
+        created: repo.created_at?.slice(0, 10),
+        pushed: repo.pushed_at?.slice(0, 10),
+        topics: (repo.topics || []).slice(0, 5),
+      }));
+      allRepos.push(...repos);
+    } catch (e) {
+      console.log(`  ✗ GitHub search: ${e.message}`);
+    }
+  }
+  // Dedupe by name, sort by stars desc, take top 10
+  const seen = new Set();
+  const deduped = allRepos.filter(r => {
+    if (seen.has(r.name)) return false;
+    seen.add(r.name);
+    return true;
+  });
+  deduped.sort((a, b) => b.stars - a.stars);
+  const top = deduped.slice(0, 10);
+  console.log(`  ✓ GitHub trending: ${top.length} repos`);
+  return top;
+}
+
 // ---------- main ----------
 (async () => {
   console.log('→ Pre-fetching AI feeds…');
@@ -107,12 +155,16 @@ async function fetchQuotes() {
   console.log('→ Pre-fetching market quotes…');
   const quotes = await fetchQuotes();
 
+  console.log('→ Pre-fetching GitHub trending AI repos…');
+  const trendingRepos = await fetchTrendingRepos();
+
   const cache = {
     fetched_at: new Date().toISOString(),
     date: new Date().toISOString().slice(0, 10),
     ai_stories: aiResults.flatMap(r => r.items.map(it => ({ ...it, source: r.source, category: r.category }))),
     finance_stories: financeResults.flatMap(r => r.items.map(it => ({ ...it, source: r.source, category: r.category }))),
     market_quotes: quotes,
+    trending_repos: trendingRepos,
   };
 
   writeFileSync('scripts/news-cache.json', JSON.stringify(cache, null, 2));
@@ -120,5 +172,6 @@ async function fetchQuotes() {
   console.log(`  ai stories:      ${cache.ai_stories.length}`);
   console.log(`  finance stories: ${cache.finance_stories.length}`);
   console.log(`  market quotes:   ${cache.market_quotes.length}`);
+  console.log(`  trending repos:  ${cache.trending_repos.length}`);
   process.exit(0);
 })();

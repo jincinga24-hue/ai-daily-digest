@@ -81,6 +81,8 @@ async function sendTelegram(text) {
   console.log(`  Found digest for ${digest.digest_date}`);
 
   const term = digest.term_of_day || {};
+  const github = digest.github_trending || '';
+
   const msg = `☀️ *Daily Brief — ${digest.digest_date}*
 
 🤖 *AI Today*
@@ -93,7 +95,10 @@ ${digest.markets_section}
 ${term.body || ''}
 
 🎯 *What This Means For You*
-${digest.personal_takeaway}`;
+${digest.personal_takeaway}
+
+🔥 *GitHub Trending*
+${github || 'No trending repos today.'}`;
 
   console.log('→ Sending to Telegram…');
   await sendTelegram(msg);
