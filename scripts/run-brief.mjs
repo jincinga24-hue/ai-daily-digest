@@ -65,6 +65,14 @@ async function post(path, body) {
   // Step 2: Send the initial message
   const userMessageText = `Run today's daily brief. Fetch yesterday's top AI and financial news, write all four sections, and persist the digest to Supabase via execute_sql. Follow the system prompt exactly.
 
+NO-REPEAT RULE (important):
+Before writing the AI Today section, query the last 3 rows from daily_digests via execute_sql:
+  SELECT digest_date, ai_section FROM daily_digests ORDER BY digest_date DESC LIMIT 3;
+For any story you already covered in those rows:
+  - Either skip it entirely, OR
+  - Compress it to one sentence starting with "Still developing:" and only if there's a genuinely new number, player, or consequence today.
+Prioritise net-new angles over re-narrating the same announcement. If the AI news cycle is genuinely quiet, say so plainly ("Quiet AI day — here's the one thing worth noting…") rather than padding with repeats.
+
 ${prefetchedContext}`;
 
   console.log('→ Sending user.message event…');
